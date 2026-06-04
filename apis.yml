@@ -1,0 +1,89 @@
+---
+aid: epfl
+name: EPFL
+description: >-
+  EPFL (École Polytechnique Fédérale de Lausanne) is a public research
+  university in Lausanne, Switzerland, ranked #19 in the QS World University
+  Rankings 2025. EPFL exposes several public, documented REST APIs across its
+  digital campus, including the Actu news API and the Memento events API
+  (both with self-service interactive docs), and its Infoscience institutional
+  repository runs on DSpace 7 with a public REST API and OAI-PMH endpoint.
+  Additional EPFL code is published openly across official GitHub
+  organizations such as EPFL-SI (IT systems and infrastructure) and EPFL-ENAC.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/epfl/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Open Data
+  - Switzerland
+  - Europe
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: epfl:actu
+    name: EPFL Actu News API
+    description: >-
+      Public REST API serving EPFL news ("Actu") content, with resources for
+      news, projects, channels, faculties, categories, themes and publics.
+      Supports pagination, search and language preferences. Default access is
+      unauthenticated; optional Token, Basic and Session authentication exist.
+    humanURL: https://actu.epfl.ch/api-docs/
+    baseURL: https://actu.epfl.ch/api/v1/
+    tags: [ News, Content, REST ]
+    properties:
+      - type: Documentation
+        url: https://actu.epfl.ch/api-docs/
+  - aid: epfl:memento
+    name: EPFL Memento Events API
+    description: >-
+      Public REST API serving EPFL events ("Memento"), with resources for
+      events, mementos, categories, domains, faculties, registrations, spoken
+      languages and vulgarizations. The Events endpoint supports extensive
+      filtering by date, time, speaker, location and language, plus pagination,
+      search and ordering. Default access is unauthenticated.
+    humanURL: https://memento.epfl.ch/api/docs/
+    baseURL: https://memento.epfl.ch/api/v1/
+    tags: [ Events, Calendar, REST ]
+    properties:
+      - type: Documentation
+        url: https://memento.epfl.ch/api/docs/
+  - aid: epfl:infoscience
+    name: EPFL Infoscience Repository API
+    description: >-
+      Infoscience is EPFL's institutional repository, running on DSpace 7.6.2.
+      It exposes a public HATEOAS/HAL REST API (items, collections,
+      communities, bitstreams, discovery/search and more) and an OAI-PMH
+      endpoint for metadata harvesting of EPFL publications and research output.
+    humanURL: https://infoscience.epfl.ch/
+    baseURL: https://infoscience.epfl.ch/server/api
+    tags: [ Repository, Research, DSpace, OAI-PMH, Open Access ]
+    properties:
+      - type: Documentation
+        url: https://infoscience.epfl.ch/server/api
+      - type: OAI-PMH
+        url: https://infoscience.epfl.ch/oai/request?verb=Identify
+common:
+  - type: Website
+    url: https://www.epfl.ch
+  - type: GitHub
+    url: https://github.com/epfl-si
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/epfl/
+  - type: Plans
+    url: plans/epfl-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/epfl-rate-limits.yml
+  - type: FinOps
+    url: finops/epfl-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

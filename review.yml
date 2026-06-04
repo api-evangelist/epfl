@@ -1,0 +1,52 @@
+---
+name: EPFL
+description: EPFL public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/epfl/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 3
+    summary: >-
+      EPFL has a real, publicly documented API surface that is stronger than
+      most universities: the Actu news API and Memento events API both ship
+      live interactive docs and default-unauthenticated REST endpoints, and
+      Infoscience runs DSpace 7 with a working public REST API plus OAI-PMH.
+      There is no single unified developer portal or formal plans/rate-limit
+      documentation, and some services (e.g. go.epfl.ch) are gated to the EPFL
+      community. All endpoints below were probed live on 2026-06-03; nothing
+      was fabricated.
+    endpoints:
+      - url: https://actu.epfl.ch/api-docs/
+        status: 200
+        note: Actu News API interactive documentation, live.
+      - url: https://actu.epfl.ch/api/v1/
+        status: 200
+        note: Actu News API base URL, responds.
+      - url: https://memento.epfl.ch/api/docs/
+        status: 200
+        note: Memento Events API interactive documentation, live.
+      - url: https://memento.epfl.ch/api/v1/
+        status: 200
+        note: Memento Events API base URL, responds.
+      - url: https://infoscience.epfl.ch/server/api
+        status: 200
+        note: DSpace 7.6.2 REST API root, returns HATEOAS/HAL links.
+      - url: https://infoscience.epfl.ch/oai/request?verb=Identify
+        status: 202
+        note: Infoscience OAI-PMH endpoint, responds (202 from server).
+      - url: https://github.com/epfl-si
+        status: 200
+        note: Official EPFL-SI GitHub org (IT systems/infrastructure), 250+ repos.
+      - url: https://github.com/EPFL
+        status: 200
+        note: EPFL GitHub organization exists.
+      - url: https://go.epfl.ch/api
+        status: 200
+        note: URL shortener API, gated to EPFL community members with a token.
+      - url: https://www.linkedin.com/school/epfl/
+        status: 999
+        note: Official LinkedIn school page; 999 is LinkedIn anti-bot, page exists.
+      - url: https://www.epfl.ch
+        status: 200
+        note: Official institutional website.
