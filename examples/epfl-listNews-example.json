@@ -1,0 +1,47 @@
+{
+  "count": 41711,
+  "next": "https://actu.epfl.ch/api/v1/news/?lang=en&limit=1&offset=1",
+  "previous": null,
+  "results": [
+    {
+      "id": 232367,
+      "lang": "en",
+      "title": "EPFL researchers unveil a new approach to sustainable materials",
+      "subtitle": "A cross-disciplinary team presents findings at the School of Engineering.",
+      "text": "<p>Researchers at EPFL have demonstrated ...</p>",
+      "order": 232337,
+      "publish_date": "2026-06-04T04:45:03",
+      "visual_url": "https://actu.epfl.ch/image/123456/1920x1080.jpg",
+      "thumbnail_url": "https://actu.epfl.ch/image/123456/300x200.jpg",
+      "visual_description": "© 2026 EPFL",
+      "short_vimeo_video_id": "",
+      "short_vimeo_video_credits": "",
+      "carousel_images": [],
+      "video": "",
+      "channel": {
+        "id": 571,
+        "name": "mediacom",
+        "fr_description": "Canal Mediacom",
+        "en_description": "Mediacom channel",
+        "de_description": "",
+        "is_active": true
+      },
+      "category": {
+        "id": 1,
+        "fr_label": "EPFL",
+        "en_label": "EPFL",
+        "de_label": "EPFL"
+      },
+      "news_url": "https://actu.epfl.ch/news/epfl-researchers-unveil-a-new-approach-to-sus/",
+      "themes": [],
+      "publics": [],
+      "faculties": [],
+      "projects": [],
+      "authors": [],
+      "links": [],
+      "funding": "",
+      "references": "",
+      "is_under_cc_license": false
+    }
+  ]
+}

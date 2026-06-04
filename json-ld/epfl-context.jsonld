@@ -1,0 +1,56 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "epfl": "https://www.epfl.ch/terms#",
+    "@vocab": "https://www.epfl.ch/terms#",
+
+    "CollegeOrUniversity": "schema:CollegeOrUniversity",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+
+    "NewsArticle": "schema:NewsArticle",
+    "Event": "schema:Event",
+    "CreativeWork": "schema:CreativeWork",
+
+    "news": { "@id": "epfl:news", "@container": "@set" },
+    "events": { "@id": "epfl:events", "@container": "@set" },
+
+    "id": "schema:identifier",
+    "lang": "schema:inLanguage",
+    "title": "schema:headline",
+    "subtitle": "schema:alternativeHeadline",
+    "text": "schema:articleBody",
+    "publish_date": { "@id": "schema:datePublished", "@type": "schema:DateTime" },
+    "news_url": { "@id": "schema:url", "@type": "@id" },
+    "visual_url": { "@id": "schema:image", "@type": "@id" },
+    "thumbnail_url": { "@id": "schema:thumbnailUrl", "@type": "@id" },
+    "channel": "epfl:channel",
+    "category": "schema:articleSection",
+    "themes": "schema:about",
+    "publics": "schema:audience",
+    "faculties": { "@id": "schema:sourceOrganization", "@container": "@set" },
+    "authors": { "@id": "schema:author", "@container": "@set" },
+
+    "slug": "epfl:slug",
+    "event_url": { "@id": "schema:url", "@type": "@id" },
+    "start_date": { "@id": "schema:startDate", "@type": "schema:Date" },
+    "end_date": { "@id": "schema:endDate", "@type": "schema:Date" },
+    "start_time": "epfl:startTime",
+    "end_time": "epfl:endTime",
+    "place_and_room": "schema:location",
+    "speaker": "schema:performer",
+    "organizer": "schema:organizer",
+    "contact": "schema:contactPoint",
+    "keywords": "schema:keywords",
+    "domains": "schema:about",
+    "spoken_languages": "schema:inLanguage",
+    "registration": "schema:eventAttendanceMode",
+    "icalendar_url": { "@id": "epfl:icalendar", "@type": "@id" }
+  },
+  "@type": "CollegeOrUniversity",
+  "name": "EPFL (École Polytechnique Fédérale de Lausanne)",
+  "url": "https://www.epfl.ch",
+  "description": "Public research university in Lausanne, Switzerland, exposing public REST APIs for news (Actu), events (Memento), and an Infoscience DSpace repository."
+}

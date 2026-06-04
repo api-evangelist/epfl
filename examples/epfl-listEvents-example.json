@@ -1,0 +1,53 @@
+{
+  "count": 230,
+  "next": "https://memento.epfl.ch/api/v1/events/?limit=1&offset=1",
+  "previous": null,
+  "results": [
+    {
+      "id": 71972,
+      "title": "Microbes in conflict: Phages, Pathogens, Antibiotics and the Human Microbiota",
+      "slug": "microbes-in-conflict-phages-pathogens-antibiotics",
+      "event_url": "https://memento.epfl.ch/event/microbes-in-conflict-phages-pathogens-antibiotics",
+      "visual_url": "https://memento.epfl.ch/image/33275/200x112.jpg",
+      "visual_large_url": "https://memento.epfl.ch/image/33275/720x405.jpg",
+      "visual_maxsize_url": "https://memento.epfl.ch/image/33275/max-size.jpg",
+      "lang": "en",
+      "start_date": "2026-06-04",
+      "end_date": "2026-06-04",
+      "start_time": "10:00:00",
+      "end_time": "12:00:00",
+      "description": "<p>Mini-symposium on Microbes in conflict. Host: Prof. Melanie Blokesch</p>",
+      "image_description": "",
+      "creation_date": "2026-05-12T09:14:00",
+      "last_modification_date": "2026-05-28T11:02:00",
+      "link_label": "",
+      "link_url": "",
+      "canceled": "False",
+      "cancel_reason": "",
+      "place_and_room": "AI 1153",
+      "url_place_and_room": "https://plan.epfl.ch/?room=AI%201153",
+      "url_online_room": "",
+      "spoken_languages": [
+        { "id": 1, "name": "English" }
+      ],
+      "speaker": "Various speakers",
+      "organizer": "Prof. Melanie Blokesch",
+      "contact": "melanie.blokesch@epfl.ch",
+      "is_internal": "False",
+      "theme": "",
+      "vulgarization": { "id": 2, "name": "For a specialist audience" },
+      "registration": { "id": 1, "name": "No registration required" },
+      "keywords": "microbiology, phages, antibiotics",
+      "file": null,
+      "icalendar_url": "https://memento.epfl.ch/event/microbes-in-conflict-phages-pathogens-antibiotics/ics/",
+      "category": { "id": 3, "name": "Conferences - Seminars" },
+      "academic_calendar_category": null,
+      "domains": [
+        { "id": 5, "name": "Life Sciences" }
+      ],
+      "mementos": [
+        { "id": 12, "name": "SV" }
+      ]
+    }
+  ]
+}

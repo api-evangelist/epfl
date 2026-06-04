@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/epfl/main/json-schema/epfl-news-schema.json",
+  "title": "EPFL Actu News",
+  "description": "A single news item returned by the EPFL Actu News API (/api/v1/news/).",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "lang": { "type": "string" },
+    "title": { "type": "string" },
+    "subtitle": { "type": "string" },
+    "text": { "type": "string" },
+    "order": { "type": "integer" },
+    "publish_date": { "type": "string", "format": "date-time" },
+    "visual_url": { "type": ["string", "null"], "format": "uri" },
+    "thumbnail_url": { "type": ["string", "null"], "format": "uri" },
+    "visual_description": { "type": "string" },
+    "short_vimeo_video_id": { "type": "string" },
+    "short_vimeo_video_credits": { "type": "string" },
+    "carousel_images": { "type": "array", "items": { "type": "object" } },
+    "video": { "type": "string" },
+    "channel": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "fr_description": { "type": "string" },
+        "en_description": { "type": "string" },
+        "de_description": { "type": "string" },
+        "is_active": { "type": "boolean" }
+      }
+    },
+    "category": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "fr_label": { "type": "string" },
+        "en_label": { "type": "string" },
+        "de_label": { "type": "string" }
+      }
+    },
+    "news_url": { "type": "string", "format": "uri" },
+    "themes": { "type": "array", "items": { "type": "object" } },
+    "publics": { "type": "array", "items": { "type": "object" } },
+    "faculties": { "type": "array", "items": { "type": "object" } },
+    "projects": { "type": "array", "items": { "type": "object" } },
+    "authors": { "type": "array", "items": { "type": "object" } },
+    "links": { "type": "array", "items": { "type": "object" } },
+    "funding": { "type": "string" },
+    "references": { "type": "string" },
+    "is_under_cc_license": { "type": "boolean" }
+  },
+  "required": ["id", "title", "publish_date", "news_url"]
+}

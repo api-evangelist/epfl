@@ -1,0 +1,69 @@
+vocabulary:
+  name: EPFL API Vocabulary
+  description: >-
+    Controlled vocabulary of the core terms used across EPFL's public REST APIs
+    (Actu news, Memento events) and the Infoscience DSpace repository. Terms are
+    derived from the published CoreAPI schemas and live API responses.
+  version: 1.0.0
+  terms:
+    - term: News
+      definition: >-
+        An EPFL "Actu" news item, identified by an integer id, with localized
+        title/subtitle/text, a publish_date and a canonical news_url.
+      tags: [actu, content, news]
+    - term: Channel
+      definition: >-
+        A publishing channel that groups Actu news and projects, with localized
+        descriptions and an is_active flag.
+      tags: [actu, taxonomy]
+    - term: Category
+      definition: >-
+        A classification label applied to news (localized fr/en/de labels) or to
+        Memento events (single name).
+      tags: [actu, memento, taxonomy]
+    - term: Theme
+      definition: A thematic tag associated with news items or events.
+      tags: [actu, memento, taxonomy]
+    - term: Public
+      definition: An intended audience segment for an Actu news item.
+      tags: [actu, taxonomy]
+    - term: Faculty
+      definition: An EPFL school or faculty associated with news or events.
+      tags: [actu, memento, organization]
+    - term: Project
+      definition: A project grouping of related Actu content.
+      tags: [actu, content]
+    - term: Event
+      definition: >-
+        An EPFL "Memento" event with title, slug, start/end date and time,
+        location (place_and_room), speaker, organizer and contact.
+      tags: [memento, events]
+    - term: Memento
+      definition: >-
+        A named collection of events (e.g. a school or unit agenda) that groups
+        Memento events.
+      tags: [memento, events]
+    - term: Domain
+      definition: A subject domain used to classify Memento events.
+      tags: [memento, taxonomy]
+    - term: SpokenLanguage
+      definition: The language in which a Memento event is delivered.
+      tags: [memento, language]
+    - term: Vulgarization
+      definition: >-
+        The audience-accessibility level of an event (e.g. specialist versus
+        general public).
+      tags: [memento, events]
+    - term: Registration
+      definition: The registration requirement or method for a Memento event.
+      tags: [memento, events]
+    - term: Item
+      definition: >-
+        A record in the Infoscience DSpace repository representing a publication
+        or research output.
+      tags: [infoscience, dspace, research]
+    - term: PaginatedList
+      definition: >-
+        The Django REST Framework limit/offset envelope with count, next,
+        previous and results fields used by the Actu and Memento APIs.
+      tags: [pagination, drf]

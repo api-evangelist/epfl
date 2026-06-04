@@ -40,6 +40,8 @@ apis:
     properties:
       - type: Documentation
         url: https://actu.epfl.ch/api-docs/
+      - type: OpenAPI
+        url: openapi/epfl-actu.yaml
   - aid: epfl:memento
     name: EPFL Memento Events API
     description: >-
@@ -54,6 +56,8 @@ apis:
     properties:
       - type: Documentation
         url: https://memento.epfl.ch/api/docs/
+      - type: OpenAPI
+        url: openapi/epfl-memento.yaml
   - aid: epfl:infoscience
     name: EPFL Infoscience Repository API
     description: >-

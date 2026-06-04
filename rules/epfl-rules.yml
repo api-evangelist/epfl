@@ -1,0 +1,61 @@
+extends: []
+formats:
+  - oas3
+documentationUrl: https://actu.epfl.ch/api-docs/
+rules:
+  epfl-info-contact:
+    description: API info object should declare a contact for the EPFL API.
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+
+  epfl-servers-https:
+    description: EPFL API servers must use HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+
+  epfl-collection-pagination:
+    description: >-
+      EPFL collection (list) endpoints should expose DRF limit/offset
+      pagination parameters.
+    severity: warn
+    given: $.paths[?(@property.match(/\/$/))].get.parameters
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            type: object
+            properties:
+              name:
+                enum: [limit, offset]
+            required: [name]
+
+  epfl-operation-id:
+    description: Every operation should have an operationId.
+    severity: warn
+    given: $.paths[*][*]
+    then:
+      field: operationId
+      function: truthy
+
+  epfl-paginated-list-envelope:
+    description: >-
+      Paginated list response schemas should follow the DRF envelope with
+      count/next/previous/results.
+    severity: info
+    given: $.components.schemas[?(@property.match(/^Paginated/))]
+    then:
+      field: properties
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required: [count, next, previous, results]

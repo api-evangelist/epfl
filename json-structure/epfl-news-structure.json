@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/epfl/main/json-structure/epfl-news-structure.json",
+  "name": "EpflNews",
+  "description": "JSON Structure for an EPFL Actu News item.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "int32" },
+    "lang": { "type": "string" },
+    "title": { "type": "string" },
+    "subtitle": { "type": "string" },
+    "text": { "type": "string" },
+    "order": { "type": "int32" },
+    "publish_date": { "type": "string", "format": "date-time" },
+    "visual_url": { "type": ["string", "null"] },
+    "thumbnail_url": { "type": ["string", "null"] },
+    "visual_description": { "type": "string" },
+    "video": { "type": "string" },
+    "channel": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "int32" },
+        "name": { "type": "string" },
+        "is_active": { "type": "boolean" }
+      }
+    },
+    "category": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "int32" },
+        "en_label": { "type": "string" },
+        "fr_label": { "type": "string" },
+        "de_label": { "type": "string" }
+      }
+    },
+    "news_url": { "type": "string" },
+    "themes": { "type": "array", "items": { "type": "object" } },
+    "publics": { "type": "array", "items": { "type": "object" } },
+    "faculties": { "type": "array", "items": { "type": "object" } },
+    "projects": { "type": "array", "items": { "type": "object" } },
+    "funding": { "type": "string" },
+    "references": { "type": "string" },
+    "is_under_cc_license": { "type": "boolean" }
+  },
+  "required": ["id", "title", "publish_date", "news_url"]
+}
