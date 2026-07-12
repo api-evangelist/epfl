@@ -74,6 +74,12 @@ apis:
       - type: OAI-PMH
         url: https://infoscience.epfl.ch/oai/request?verb=Identify
 common:
+  - type: VulnerabilityDisclosure
+    url: security/epfl-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/epfl-domain-security.yml
+  - type: Authentication
+    url: authentication/epfl-authentication.yml
   - type: Website
     url: https://www.epfl.ch
   - type: GitHub
