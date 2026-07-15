@@ -74,6 +74,8 @@ apis:
       - type: OAI-PMH
         url: https://infoscience.epfl.ch/oai/request?verb=Identify
 common:
+  - type: AgenticAccess
+    url: agentic-access/epfl-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/epfl-vulnerability-disclosure.yml
   - type: DomainSecurity
