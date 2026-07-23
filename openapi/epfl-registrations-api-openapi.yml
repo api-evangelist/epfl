@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: EPFL Actu News Categories Registrations API
+  description: Public REST API serving EPFL news ("Actu") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.
+  version: v1
+  contact:
+    name: EPFL Actu API
+    url: https://actu.epfl.ch/api-docs/
+servers:
+- url: https://actu.epfl.ch/api/v1
+security: []
+tags:
+- name: Registrations
+paths:
+  /registrations/:
+    get:
+      operationId: listRegistrations
+      summary: List all Registration objects.
+      responses:
+        '200':
+          description: A list of registrations.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedRegistrationList'
+      tags:
+      - Registrations
+  /registrations/{id}/:
+    get:
+      operationId: readRegistration
+      summary: Return the details about the given Registration id.
+      parameters:
+      - $ref: '#/components/parameters/IntId'
+      responses:
+        '200':
+          description: A single registration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Registration'
+      tags:
+      - Registrations
+components:
+  schemas:
+    Registration:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    PaginatedRegistrationList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          format: uri
+          nullable: true
+        previous:
+          type: string
+          format: uri
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Registration'
+  parameters:
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'DRF Token authentication, e.g. "Authorization: Token <key>".'
+    basicAuth:
+      type: http
+      scheme: basic

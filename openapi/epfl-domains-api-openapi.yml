@@ -1,0 +1,116 @@
+openapi: 3.0.3
+info:
+  title: EPFL Actu News Categories Domains API
+  description: Public REST API serving EPFL news ("Actu") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.
+  version: v1
+  contact:
+    name: EPFL Actu API
+    url: https://actu.epfl.ch/api-docs/
+servers:
+- url: https://actu.epfl.ch/api/v1
+security: []
+tags:
+- name: Domains
+paths:
+  /domains/:
+    get:
+      operationId: listDomains
+      summary: List all Domain objects.
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
+      responses:
+        '200':
+          description: A paginated list of domains.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDomainList'
+      tags:
+      - Domains
+  /domains/{id}/:
+    get:
+      operationId: readDomain
+      summary: Return the details about the given Domain id.
+      parameters:
+      - $ref: '#/components/parameters/IntId'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
+      responses:
+        '200':
+          description: A single domain.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Domain'
+      tags:
+      - Domains
+components:
+  schemas:
+    PaginatedDomainList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          format: uri
+          nullable: true
+        previous:
+          type: string
+          format: uri
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Domain'
+    Domain:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+  parameters:
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
+    Search:
+      name: search
+      in: query
+      description: A search term.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
+    Ordering:
+      name: ordering
+      in: query
+      description: Which field to use when ordering the results.
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'DRF Token authentication, e.g. "Authorization: Token <key>".'
+    basicAuth:
+      type: http
+      scheme: basic

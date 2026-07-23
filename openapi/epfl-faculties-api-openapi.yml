@@ -1,0 +1,108 @@
+openapi: 3.0.3
+info:
+  title: EPFL Actu News Categories Faculties API
+  description: Public REST API serving EPFL news ("Actu") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.
+  version: v1
+  contact:
+    name: EPFL Actu API
+    url: https://actu.epfl.ch/api-docs/
+servers:
+- url: https://actu.epfl.ch/api/v1
+security: []
+tags:
+- name: Faculties
+paths:
+  /faculties/:
+    get:
+      operationId: listFaculties
+      summary: List all Faculty objects.
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Search'
+      responses:
+        '200':
+          description: A paginated list of faculties.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedFacultyList'
+      tags:
+      - Faculties
+  /faculties/{id}/:
+    get:
+      operationId: readFaculty
+      summary: Return the details about the given Faculty id.
+      parameters:
+      - $ref: '#/components/parameters/IntId'
+      - $ref: '#/components/parameters/Search'
+      responses:
+        '200':
+          description: A single faculty.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Faculty'
+      tags:
+      - Faculties
+components:
+  schemas:
+    Faculty:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    PaginatedFacultyList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          format: uri
+          nullable: true
+        previous:
+          type: string
+          format: uri
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Faculty'
+  parameters:
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
+    Search:
+      name: search
+      in: query
+      description: A search term.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'DRF Token authentication, e.g. "Authorization: Token <key>".'
+    basicAuth:
+      type: http
+      scheme: basic

@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: EPFL Actu News Categories Vulgarizations API
+  description: Public REST API serving EPFL news ("Actu") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.
+  version: v1
+  contact:
+    name: EPFL Actu API
+    url: https://actu.epfl.ch/api-docs/
+servers:
+- url: https://actu.epfl.ch/api/v1
+security: []
+tags:
+- name: Vulgarizations
+paths:
+  /vulgarizations/:
+    get:
+      operationId: listVulgarizations
+      summary: List all Vulgarization objects.
+      responses:
+        '200':
+          description: A list of vulgarizations.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedVulgarizationList'
+      tags:
+      - Vulgarizations
+  /vulgarizations/{id}/:
+    get:
+      operationId: readVulgarization
+      summary: Return the details about the given Vulgarization id.
+      parameters:
+      - $ref: '#/components/parameters/IntId'
+      responses:
+        '200':
+          description: A single vulgarization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vulgarization'
+      tags:
+      - Vulgarizations
+components:
+  schemas:
+    Vulgarization:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    PaginatedVulgarizationList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          format: uri
+          nullable: true
+        previous:
+          type: string
+          format: uri
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vulgarization'
+  parameters:
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'DRF Token authentication, e.g. "Authorization: Token <key>".'
+    basicAuth:
+      type: http
+      scheme: basic

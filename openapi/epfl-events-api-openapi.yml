@@ -1,0 +1,347 @@
+openapi: 3.0.3
+info:
+  title: EPFL Actu News Categories Events API
+  description: Public REST API serving EPFL news ("Actu") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.
+  version: v1
+  contact:
+    name: EPFL Actu API
+    url: https://actu.epfl.ch/api-docs/
+servers:
+- url: https://actu.epfl.ch/api/v1
+security: []
+tags:
+- name: Events
+paths:
+  /events/:
+    get:
+      operationId: listEvents
+      summary: List all Event objects with filtering.
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - name: title
+        in: query
+        description: Filters the events containing the given text in the title.
+        schema:
+          type: string
+      - name: description
+        in: query
+        description: Filters the events containing the given text in the description.
+        schema:
+          type: string
+      - name: start_date
+        in: query
+        description: Filters the events which start at the given start_date.
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        description: Filters the events which finish at the given end_date.
+        schema:
+          type: string
+          format: date
+      - name: start_time
+        in: query
+        description: Filters the events which start at the given start_time.
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        description: Filters the events which finish at the given end_time.
+        schema:
+          type: string
+      - name: start_year
+        in: query
+        description: Filters the events which start at the given start_year.
+        schema:
+          type: number
+      - name: place_and_room
+        in: query
+        description: Filters the events containing the given text in the place and room.
+        schema:
+          type: string
+      - name: spoken_languages
+        in: query
+        description: Spoken Language ID. Return only the events with the given spoken language.
+        schema:
+          type: string
+      - name: memento
+        in: query
+        description: Memento ID. Return only the events in the given memento.
+        schema:
+          type: number
+      - name: category
+        in: query
+        description: Category ID. Return only the events linked to the given category.
+        schema:
+          type: string
+      - name: theme
+        in: query
+        description: Theme name. Return only the events linked to the given theme.
+        schema:
+          type: string
+      - name: keywords
+        in: query
+        description: Keywords name. Return only the events linked to the given keywords.
+        schema:
+          type: string
+      - name: vulgarization
+        in: query
+        description: Vulgarization ID. Return only the events with the given vulgarization.
+        schema:
+          type: string
+      - name: registration
+        in: query
+        description: Registration ID. Return only the events linked to the given registration.
+        schema:
+          type: string
+      - name: domains
+        in: query
+        description: Domain ID. Return only the events linked to the given domain.
+        schema:
+          type: string
+      - name: academic_calendar_category
+        in: query
+        description: Academic Calendar Category ID. Return only matching events.
+        schema:
+          type: number
+      - name: speaker
+        in: query
+        description: Filters the events containing the given text in the speaker.
+        schema:
+          type: string
+      - name: organizer
+        in: query
+        description: Filters the events containing the given text in the organizer.
+        schema:
+          type: string
+      - name: contact
+        in: query
+        description: Filters the events containing the given text in the contact.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
+      responses:
+        '200':
+          description: A paginated list of events.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedEventList'
+      tags:
+      - Events
+  /events/{event__pk}/:
+    get:
+      operationId: readEvent
+      summary: Return the details about the given Event id.
+      parameters:
+      - name: event__pk
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
+      responses:
+        '200':
+          description: A single event.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+      tags:
+      - Events
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Registration:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    PaginatedEventList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          format: uri
+          nullable: true
+        previous:
+          type: string
+          format: uri
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+    Memento:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        slug:
+          type: string
+        event_url:
+          type: string
+          format: uri
+        visual_url:
+          type: string
+          format: uri
+        visual_large_url:
+          type: string
+          format: uri
+        visual_maxsize_url:
+          type: string
+          format: uri
+        lang:
+          type: string
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        start_time:
+          type: string
+        end_time:
+          type: string
+        description:
+          type: string
+        image_description:
+          type: string
+        creation_date:
+          type: string
+          format: date-time
+        last_modification_date:
+          type: string
+          format: date-time
+        link_label:
+          type: string
+        link_url:
+          type: string
+        canceled:
+          type: string
+        cancel_reason:
+          type: string
+        place_and_room:
+          type: string
+        url_place_and_room:
+          type: string
+        url_online_room:
+          type: string
+        spoken_languages:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpokenLanguage'
+        speaker:
+          type: string
+        organizer:
+          type: string
+        contact:
+          type: string
+        is_internal:
+          type: string
+        theme:
+          type: string
+        vulgarization:
+          $ref: '#/components/schemas/Vulgarization'
+        registration:
+          $ref: '#/components/schemas/Registration'
+        keywords:
+          type: string
+        file:
+          type: string
+          nullable: true
+        icalendar_url:
+          type: string
+          format: uri
+        category:
+          $ref: '#/components/schemas/Category'
+        academic_calendar_category:
+          type: string
+          nullable: true
+        domains:
+          type: array
+          items:
+            $ref: '#/components/schemas/Domain'
+        mementos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Memento'
+    Domain:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    SpokenLanguage:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Vulgarization:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+  parameters:
+    Search:
+      name: search
+      in: query
+      description: A search term.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
+    Ordering:
+      name: ordering
+      in: query
+      description: Which field to use when ordering the results.
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'DRF Token authentication, e.g. "Authorization: Token <key>".'
+    basicAuth:
+      type: http
+      scheme: basic

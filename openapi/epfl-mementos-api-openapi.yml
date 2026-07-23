@@ -1,0 +1,279 @@
+openapi: 3.0.3
+info:
+  title: EPFL Actu News Categories Mementos API
+  description: Public REST API serving EPFL news ("Actu") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.
+  version: v1
+  contact:
+    name: EPFL Actu API
+    url: https://actu.epfl.ch/api-docs/
+servers:
+- url: https://actu.epfl.ch/api/v1
+security: []
+tags:
+- name: Mementos
+paths:
+  /mementos/:
+    get:
+      operationId: listMementos
+      summary: List all Memento objects.
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
+      responses:
+        '200':
+          description: A paginated list of mementos.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMementoList'
+      tags:
+      - Mementos
+  /mementos/{id}/:
+    get:
+      operationId: readMemento
+      summary: Return the details about the given Memento id.
+      parameters:
+      - $ref: '#/components/parameters/IntId'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
+      responses:
+        '200':
+          description: A single memento.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Memento'
+      tags:
+      - Mementos
+  /mementos/{id}/events/:
+    get:
+      operationId: listMementoEvents
+      summary: List events for a memento.
+      parameters:
+      - $ref: '#/components/parameters/IntId'
+      responses:
+        '200':
+          description: Events for the memento.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedEventList'
+      tags:
+      - Mementos
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    PaginatedEventList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          format: uri
+          nullable: true
+        previous:
+          type: string
+          format: uri
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+    Registration:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Memento:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        slug:
+          type: string
+        event_url:
+          type: string
+          format: uri
+        visual_url:
+          type: string
+          format: uri
+        visual_large_url:
+          type: string
+          format: uri
+        visual_maxsize_url:
+          type: string
+          format: uri
+        lang:
+          type: string
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        start_time:
+          type: string
+        end_time:
+          type: string
+        description:
+          type: string
+        image_description:
+          type: string
+        creation_date:
+          type: string
+          format: date-time
+        last_modification_date:
+          type: string
+          format: date-time
+        link_label:
+          type: string
+        link_url:
+          type: string
+        canceled:
+          type: string
+        cancel_reason:
+          type: string
+        place_and_room:
+          type: string
+        url_place_and_room:
+          type: string
+        url_online_room:
+          type: string
+        spoken_languages:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpokenLanguage'
+        speaker:
+          type: string
+        organizer:
+          type: string
+        contact:
+          type: string
+        is_internal:
+          type: string
+        theme:
+          type: string
+        vulgarization:
+          $ref: '#/components/schemas/Vulgarization'
+        registration:
+          $ref: '#/components/schemas/Registration'
+        keywords:
+          type: string
+        file:
+          type: string
+          nullable: true
+        icalendar_url:
+          type: string
+          format: uri
+        category:
+          $ref: '#/components/schemas/Category'
+        academic_calendar_category:
+          type: string
+          nullable: true
+        domains:
+          type: array
+          items:
+            $ref: '#/components/schemas/Domain'
+        mementos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Memento'
+    Domain:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    PaginatedMementoList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          format: uri
+          nullable: true
+        previous:
+          type: string
+          format: uri
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Memento'
+    SpokenLanguage:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Vulgarization:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+  parameters:
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
+    Search:
+      name: search
+      in: query
+      description: A search term.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
+    Ordering:
+      name: ordering
+      in: query
+      description: Which field to use when ordering the results.
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'DRF Token authentication, e.g. "Authorization: Token <key>".'
+    basicAuth:
+      type: http
+      scheme: basic

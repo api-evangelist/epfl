@@ -1,0 +1,243 @@
+openapi: 3.0.3
+info:
+  title: EPFL Actu Categories News API
+  description: Public REST API serving EPFL news ("Actu") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.
+  version: v1
+  contact:
+    name: EPFL Actu API
+    url: https://actu.epfl.ch/api-docs/
+servers:
+- url: https://actu.epfl.ch/api/v1
+security: []
+tags:
+- name: News
+paths:
+  /news/:
+    get:
+      operationId: listNews
+      summary: List all News objects.
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Lang'
+      responses:
+        '200':
+          description: A paginated list of news items.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedNewsList'
+      tags:
+      - News
+  /news/{news__pk}/:
+    get:
+      operationId: readNews
+      summary: Return the details about the given News id.
+      parameters:
+      - name: news__pk
+        in: path
+        required: true
+        description: A unique integer value identifying this news item.
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Lang'
+      responses:
+        '200':
+          description: A single news item.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/News'
+      tags:
+      - News
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        fr_label:
+          type: string
+        en_label:
+          type: string
+        de_label:
+          type: string
+    Faculty:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Theme:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        news_url:
+          type: string
+          format: uri
+    PaginatedNewsList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: string
+          format: uri
+          nullable: true
+        previous:
+          type: string
+          format: uri
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/News'
+    Channel:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        fr_description:
+          type: string
+        en_description:
+          type: string
+        de_description:
+          type: string
+        is_active:
+          type: boolean
+    Public:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    News:
+      type: object
+      properties:
+        id:
+          type: integer
+        lang:
+          type: string
+        title:
+          type: string
+        subtitle:
+          type: string
+        text:
+          type: string
+        order:
+          type: integer
+        publish_date:
+          type: string
+          format: date-time
+        visual_url:
+          type: string
+          format: uri
+          nullable: true
+        thumbnail_url:
+          type: string
+          format: uri
+          nullable: true
+        visual_description:
+          type: string
+        short_vimeo_video_id:
+          type: string
+        short_vimeo_video_credits:
+          type: string
+        carousel_images:
+          type: array
+          items:
+            type: object
+        video:
+          type: string
+        channel:
+          $ref: '#/components/schemas/Channel'
+        category:
+          $ref: '#/components/schemas/Category'
+        news_url:
+          type: string
+          format: uri
+        themes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Theme'
+        publics:
+          type: array
+          items:
+            $ref: '#/components/schemas/Public'
+        faculties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Faculty'
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+        authors:
+          type: array
+          items:
+            type: object
+        links:
+          type: array
+          items:
+            type: object
+        funding:
+          type: string
+        references:
+          type: string
+        is_under_cc_license:
+          type: boolean
+  parameters:
+    Lang:
+      name: lang
+      in: query
+      description: Preferred language for localized content.
+      schema:
+        type: string
+        enum:
+        - en
+        - fr
+        - de
+    Search:
+      name: search
+      in: query
+      description: A search term.
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'DRF Token authentication, e.g. "Authorization: Token <key>".'
+    basicAuth:
+      type: http
+      scheme: basic
