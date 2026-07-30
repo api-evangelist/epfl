@@ -11,9 +11,22 @@ description: >-
   Additional EPFL code is published openly across official GitHub
   organizations such as EPFL-SI (IT systems and infrastructure) and EPFL-ENAC.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/epfl.png
 url: https://raw.githubusercontent.com/api-evangelist/epfl/refs/heads/main/apis.yml
 tags:
   - Education
@@ -27,52 +40,207 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: epfl:actu
-    name: EPFL Actu News API
-    description: >-
-      Public REST API serving EPFL news ("Actu") content, with resources for
-      news, projects, channels, faculties, categories, themes and publics.
-      Supports pagination, search and language preferences. Default access is
-      unauthenticated; optional Token, Basic and Session authentication exist.
-    humanURL: https://actu.epfl.ch/api-docs/
-    baseURL: https://actu.epfl.ch/api/v1/
-    tags: [ News, Content, REST ]
-    properties:
-      - type: Documentation
-        url: https://actu.epfl.ch/api-docs/
-      - type: OpenAPI
-        url: openapi/epfl-actu.yaml
-  - aid: epfl:memento
-    name: EPFL Memento Events API
-    description: >-
-      Public REST API serving EPFL events ("Memento"), with resources for
-      events, mementos, categories, domains, faculties, registrations, spoken
-      languages and vulgarizations. The Events endpoint supports extensive
-      filtering by date, time, speaker, location and language, plus pagination,
-      search and ordering. Default access is unauthenticated.
-    humanURL: https://memento.epfl.ch/api/docs/
-    baseURL: https://memento.epfl.ch/api/v1/
-    tags: [ Events, Calendar, REST ]
-    properties:
-      - type: Documentation
-        url: https://memento.epfl.ch/api/docs/
-      - type: OpenAPI
-        url: openapi/epfl-memento.yaml
-  - aid: epfl:infoscience
-    name: EPFL Infoscience Repository API
-    description: >-
-      Infoscience is EPFL's institutional repository, running on DSpace 7.6.2.
-      It exposes a public HATEOAS/HAL REST API (items, collections,
-      communities, bitstreams, discovery/search and more) and an OAI-PMH
-      endpoint for metadata harvesting of EPFL publications and research output.
-    humanURL: https://infoscience.epfl.ch/
-    baseURL: https://infoscience.epfl.ch/server/api
-    tags: [ Repository, Research, DSpace, OAI-PMH, Open Access ]
-    properties:
-      - type: Documentation
-        url: https://infoscience.epfl.ch/server/api
-      - type: OAI-PMH
-        url: https://infoscience.epfl.ch/oai/request?verb=Identify
+- aid: epfl:infoscience
+  name: EPFL Infoscience Repository API
+  description: >-
+    Infoscience is EPFL's institutional repository, running on DSpace 7.6.2. It exposes a public HATEOAS/HAL
+    REST API (items, collections, communities, bitstreams, discovery/search and more) and an OAI-PMH endpoint
+    for metadata harvesting of EPFL publications and research output.
+  humanURL: https://infoscience.epfl.ch/
+  baseURL: https://infoscience.epfl.ch/server/api
+  tags:
+  - Repository
+  - Research
+  - DSpace
+  - OAI-PMH
+  - Open Access
+  properties:
+  - type: Documentation
+    url: https://infoscience.epfl.ch/server/api
+  - type: OAI-PMH
+    url: https://infoscience.epfl.ch/oai/request?verb=Identify
+- aid: epfl:epfl-categories-api
+  name: EPFL Categories API
+  description: The Categories API from EPFL — 2 operation(s) for categories.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-categories-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-channels-api
+  name: EPFL Channels API
+  description: The Channels API from EPFL — 4 operation(s) for channels.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Channels
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-channels-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-domains-api
+  name: EPFL Domains API
+  description: The Domains API from EPFL — 2 operation(s) for domains.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Domains
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-domains-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-events-api
+  name: EPFL Events API
+  description: The Events API from EPFL — 2 operation(s) for events.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-events-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-faculties-api
+  name: EPFL Faculties API
+  description: The Faculties API from EPFL — 2 operation(s) for faculties.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Faculties
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-faculties-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-mementos-api
+  name: EPFL Mementos API
+  description: The Mementos API from EPFL — 3 operation(s) for mementos.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Mementos
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-mementos-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-news-api
+  name: EPFL News API
+  description: The News API from EPFL — 2 operation(s) for news.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - News
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-news-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-projects-api
+  name: EPFL Projects API
+  description: The Projects API from EPFL — 2 operation(s) for projects.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-projects-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-publics-api
+  name: EPFL Publics API
+  description: The Publics API from EPFL — 2 operation(s) for publics.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Publics
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-publics-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-registrations-api
+  name: EPFL Registrations API
+  description: The Registrations API from EPFL — 2 operation(s) for registrations.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Registrations
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-registrations-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-spoken-languages-api
+  name: EPFL Spoken Languages API
+  description: The Spoken Languages API from EPFL — 2 operation(s) for spoken languages.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Spoken Languages
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-spoken-languages-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-themes-api
+  name: EPFL Themes API
+  description: The Themes API from EPFL — 2 operation(s) for themes.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Themes
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-themes-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
+- aid: epfl:epfl-vulgarizations-api
+  name: EPFL Vulgarizations API
+  description: The Vulgarizations API from EPFL — 2 operation(s) for vulgarizations.
+  humanURL: https://actu.epfl.ch/api-docs/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Vulgarizations
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-vulgarizations-api-openapi.yml
+  - type: Documentation
+    url: https://actu.epfl.ch/api-docs/
+  - type: Documentation
+    url: https://memento.epfl.ch/api/docs/
 common:
   - type: AgenticAccess
     url: agentic-access/epfl-agentic-access.yml
