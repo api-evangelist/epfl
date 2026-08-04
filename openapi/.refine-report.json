@@ -1,0 +1,38 @@
+{
+  "provider": "epfl",
+  "sources": [
+    "epfl-categories-api-openapi.yml",
+    "epfl-channels-api-openapi.yml",
+    "epfl-domains-api-openapi.yml",
+    "epfl-events-api-openapi.yml",
+    "epfl-faculties-api-openapi.yml",
+    "epfl-mementos-api-openapi.yml",
+    "epfl-news-api-openapi.yml",
+    "epfl-projects-api-openapi.yml",
+    "epfl-publics-api-openapi.yml",
+    "epfl-registrations-api-openapi.yml",
+    "epfl-spoken-languages-api-openapi.yml",
+    "epfl-themes-api-openapi.yml",
+    "epfl-vulgarizations-api-openapi.yml"
+  ],
+  "outputs": [
+    "epfl-categories-api-openapi.yml",
+    "epfl-channels-api-openapi.yml",
+    "epfl-domains-api-openapi.yml",
+    "epfl-events-api-openapi.yml",
+    "epfl-faculties-api-openapi.yml",
+    "epfl-mementos-api-openapi.yml",
+    "epfl-news-api-openapi.yml",
+    "epfl-projects-api-openapi.yml",
+    "epfl-publics-api-openapi.yml",
+    "epfl-registrations-api-openapi.yml",
+    "epfl-spoken-languages-api-openapi.yml",
+    "epfl-themes-api-openapi.yml",
+    "epfl-vulgarizations-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
