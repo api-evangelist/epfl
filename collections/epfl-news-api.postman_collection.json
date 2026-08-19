@@ -1,0 +1,252 @@
+{
+  "item": [
+    {
+      "id": "d3cb2ee0-b985-4b28-967d-f8b00c10166c",
+      "name": "News",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83ff9a75-37a1-4f81-846e-80a874995808",
+          "name": "List all News objects.",
+          "request": {
+            "name": "List all News objects.",
+            "description": {},
+            "url": {
+              "path": [
+                "news",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Preferred language for localized content."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "440b765c-ab1f-49c8-a7ad-2a6d40f9560d",
+              "name": "A paginated list of news items.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 445,\n  \"next\": \"http://muaa.rovot+SZ0S3byg7.N1\",\n  \"previous\": \"https://oUdWTgbvndHDkAvI.jlird-lWTmMYQkpkrcroZBdNLorLWBX6T1ftLrNLGZKNuCmCeuoVJtxpTmtPl9NQ2+uF6S2bjzF9\",\n  \"results\": [\n    {\n      \"id\": 6031,\n      \"lang\": \"string\",\n      \"title\": \"string\",\n      \"subtitle\": \"string\",\n      \"text\": \"string\",\n      \"order\": 5384,\n      \"publish_date\": \"1975-02-09T09:42:06.623Z\",\n      \"visual_url\": \"https://iMGCEmMyCNA.epj8uflZc\",\n      \"thumbnail_url\": \"https://ZNtdNyIuGNhthwQ.pdoeMrxClD,Wk8mYUqQIOn9uUJ2sdr7Ev,ItjfWN\",\n      \"visual_description\": \"string\",\n      \"short_vimeo_video_id\": \"string\",\n      \"short_vimeo_video_credits\": \"string\",\n      \"video\": \"string\",\n      \"channel\": {\n        \"id\": 405,\n        \"name\": \"string\",\n        \"fr_description\": \"string\",\n        \"en_description\": \"string\",\n        \"de_description\": \"string\",\n        \"is_active\": false\n      },\n      \"category\": {\n        \"id\": 8247,\n        \"fr_label\": \"string\",\n        \"en_label\": \"string\",\n        \"de_label\": \"string\"\n      },\n      \"news_url\": \"http://wOXWXxt.vyokB08IQgS\",\n      \"themes\": [\n        {\n          \"id\": 8776,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 227,\n          \"name\": \"string\"\n        }\n      ],\n      \"publics\": [\n        {\n          \"id\": 1274,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8565,\n          \"name\": \"string\"\n        }\n      ],\n      \"faculties\": [\n        {\n          \"id\": 8478,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 5678,\n          \"name\": \"string\"\n        }\n      ],\n      \"projects\": [\n        {\n          \"id\": 5426,\n          \"title\": \"string\",\n          \"news_url\": \"https://ZyAWAcpVqUKtqFhHXVzpWZjJi.sbo9I.3ZTums-wsUbkX5fNivlT4H-jdY64UCikAX+gY-c8j2hmDfuc+PB6wz\"\n        },\n        {\n          \"id\": 4586,\n          \"title\": \"string\",\n          \"news_url\": \"http://wnyFPjYvRkhOw.zknro33yn\"\n        }\n      ],\n      \"funding\": \"string\",\n      \"references\": \"string\",\n      \"is_under_cc_license\": true\n    },\n    {\n      \"id\": 1501,\n      \"lang\": \"string\",\n      \"title\": \"string\",\n      \"subtitle\": \"string\",\n      \"text\": \"string\",\n      \"order\": 2765,\n      \"publish_date\": \"1960-10-11T14:06:00.847Z\",\n      \"visual_url\": \"http://uQ.eiuex0AsGIXvlNUkCz+yai0iCA\",\n      \"thumbnail_url\": \"http://UyUQaktFLKwF.grv3uD4HRQjG9FE,2p,bsc945l7HuX71WChvPLSiOeSHljznMYNPCVpLi8ETR\",\n      \"visual_description\": \"string\",\n      \"short_vimeo_video_id\": \"string\",\n      \"short_vimeo_video_credits\": \"string\",\n      \"video\": \"string\",\n      \"channel\": {\n        \"id\": 1625,\n        \"name\": \"string\",\n        \"fr_description\": \"string\",\n        \"en_description\": \"string\",\n        \"de_description\": \"string\",\n        \"is_active\": true\n      },\n      \"category\": {\n        \"id\": 5132,\n        \"fr_label\": \"string\",\n        \"en_label\": \"string\",\n        \"de_label\": \"string\"\n      },\n      \"news_url\": \"http://DskdamfxeZ.zdrVQt8,mvVz,4Jo.JQwrc3WyAGSr-jhny3xDIW0VJ\",\n      \"themes\": [\n        {\n          \"id\": 1894,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 7330,\n          \"name\": \"string\"\n        }\n      ],\n      \"publics\": [\n        {\n          \"id\": 8190,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 3578,\n          \"name\": \"string\"\n        }\n      ],\n      \"faculties\": [\n        {\n          \"id\": 3751,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 9716,\n          \"name\": \"string\"\n        }\n      ],\n      \"projects\": [\n        {\n          \"id\": 4312,\n          \"title\": \"string\",\n          \"news_url\": \"https://ReQC.rjdkwNDOPEWyP\"\n        },\n        {\n          \"id\": 2673,\n          \"title\": \"string\",\n          \"news_url\": \"http://hgF.ggreP6faeme02a4KHVntE,EnWpPf2ayj1F5rGHE7CtPTGDqYMwJi5bb2B1C\"\n        }\n      ],\n      \"funding\": \"string\",\n      \"references\": \"string\",\n      \"is_under_cc_license\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fd06e58-7c3c-4c31-8843-072e4cb3bd32",
+          "name": "Return the details about the given News id.",
+          "request": {
+            "name": "Return the details about the given News id.",
+            "description": {},
+            "url": {
+              "path": [
+                "news",
+                ":news__pk",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Preferred language for localized content."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "news__pk",
+                  "description": "(Required) A unique integer value identifying this news item."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4739441-a3e6-466e-8abe-1dd6f0284373",
+              "name": "A single news item.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    ":news__pk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "news__pk",
+                      "description": "(Required) A unique integer value identifying this news item."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4403,\n  \"lang\": \"string\",\n  \"title\": \"string\",\n  \"subtitle\": \"string\",\n  \"text\": \"string\",\n  \"order\": 6497,\n  \"publish_date\": \"2014-06-20T14:31:49.955Z\",\n  \"visual_url\": \"http://tOhYrJQTPPVRmfA.wkz,Vgchvek+kAdm8CzHCNq3ip73U5h5fMdQx-Zbfl7D6PXPX.qIGvygDj5aJqCt\",\n  \"thumbnail_url\": \"http://CnjORgalNWUSSSagncZHYsCa.tkfTjJJuL8cRsNH\",\n  \"visual_description\": \"string\",\n  \"short_vimeo_video_id\": \"string\",\n  \"short_vimeo_video_credits\": \"string\",\n  \"video\": \"string\",\n  \"channel\": {\n    \"id\": 1606,\n    \"name\": \"string\",\n    \"fr_description\": \"string\",\n    \"en_description\": \"string\",\n    \"de_description\": \"string\",\n    \"is_active\": true\n  },\n  \"category\": {\n    \"id\": 1505,\n    \"fr_label\": \"string\",\n    \"en_label\": \"string\",\n    \"de_label\": \"string\"\n  },\n  \"news_url\": \"https://SBipdzfPlGcVSNzPRVv.lnxqKCJp\",\n  \"themes\": [\n    {\n      \"id\": 969,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 4964,\n      \"name\": \"string\"\n    }\n  ],\n  \"publics\": [\n    {\n      \"id\": 9578,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 5344,\n      \"name\": \"string\"\n    }\n  ],\n  \"faculties\": [\n    {\n      \"id\": 3688,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 7514,\n      \"name\": \"string\"\n    }\n  ],\n  \"projects\": [\n    {\n      \"id\": 6596,\n      \"title\": \"string\",\n      \"news_url\": \"http://ffgJJmJNTlpQHwXeDBrDdDEj.czvxk+6-,LdS.jx1rS3Uy4WG\"\n    },\n    {\n      \"id\": 3434,\n      \"title\": \"string\",\n      \"news_url\": \"https://GmQCVSHidTbOvztVXNJBTOfvkyyoccO.unfzJCm,GAzlwf\"\n    }\n  ],\n  \"funding\": \"string\",\n  \"references\": \"string\",\n  \"is_under_cc_license\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://actu.epfl.ch/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3d52cd48-0db8-4193-8a7c-2e2ce7b11558",
+    "name": "EPFL Actu Categories News API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public REST API serving EPFL news (\"Actu\") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.\n\nContact Support:\n Name: EPFL Actu API",
+      "type": "text/plain"
+    }
+  }
+}

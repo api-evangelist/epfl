@@ -1,0 +1,341 @@
+{
+  "item": [
+    {
+      "id": "4f89c80e-89c5-449e-8158-d4a36331e11f",
+      "name": "Mementos",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "090217a3-c191-4943-b99b-e65bbd7abb6f",
+          "name": "List all Memento objects.",
+          "request": {
+            "name": "List all Memento objects.",
+            "description": {},
+            "url": {
+              "path": [
+                "mementos",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b36709f-d61a-4da2-bb67-18a7d4c92260",
+              "name": "A paginated list of mementos.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mementos",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3875,\n  \"next\": \"https://ksSmHJ.ygynytnhTofs26ePObCWHU0\",\n  \"previous\": \"http://Jnoei.qba3I2q2gTG5NZkIff,fFBjSjYVe\",\n  \"results\": [\n    {\n      \"id\": 6230,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 9371,\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a674e2cd-f193-4c50-8942-854e6880aea3",
+          "name": "Return the details about the given Memento id.",
+          "request": {
+            "name": "Return the details about the given Memento id.",
+            "description": {},
+            "url": {
+              "path": [
+                "mementos",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this object."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16989ff2-9833-4930-90ec-e9418469334c",
+              "name": "A single memento.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mementos",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this object."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5132,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0af1a39a-d052-4fff-82ed-767763e0d3ec",
+          "name": "List events for a memento.",
+          "request": {
+            "name": "List events for a memento.",
+            "description": {},
+            "url": {
+              "path": [
+                "mementos",
+                ":id",
+                "events",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this object."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5995d7c-bb1c-4ced-b9ca-d17799812b20",
+              "name": "Events for the memento.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mementos",
+                    ":id",
+                    "events",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this object."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9822,\n  \"next\": \"https://cBoFffdBjIUJIS.lmlgq+x35sH\",\n  \"previous\": \"http://dFSwKNGOGyDcOMInjCCIsUYvQnx.szydI+CCiZ5YhtrKlGkOwQTg0wQg1EzlfarbQd5ZAmQBqprOlXxZY7PscdfMv-rqX1A\",\n  \"results\": [\n    {\n      \"id\": 2324,\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"event_url\": \"https://klMNAYtXulErZtLPNMmHFJN.bnziykpjOHjR.iYIp0XNxt7mEwvZq2T3rtq.fcBjbAOonlLAWatdiWkyhC+kYL\",\n      \"visual_url\": \"https://inmFM.lpiQUdLre\",\n      \"visual_large_url\": \"https://QByAoMCtHgyickEFzNoZraFDQVSVbBmz.igKMTDlC7ialfEode60,HnhyqCrPs.QhM6\",\n      \"visual_maxsize_url\": \"https://SukQHoqnZPDa.sipq.XROtmA-eCQwH6Iezzk3pPSgseOE+hQHYoXitXgTlYQl.tuRLAAY\",\n      \"lang\": \"string\",\n      \"start_date\": \"1980-12-23\",\n      \"end_date\": \"1990-04-27\",\n      \"start_time\": \"string\",\n      \"end_time\": \"string\",\n      \"description\": \"string\",\n      \"image_description\": \"string\",\n      \"creation_date\": \"1985-04-16T08:32:10.083Z\",\n      \"last_modification_date\": \"2005-11-05T19:02:13.762Z\",\n      \"link_label\": \"string\",\n      \"link_url\": \"string\",\n      \"canceled\": \"string\",\n      \"cancel_reason\": \"string\",\n      \"place_and_room\": \"string\",\n      \"url_place_and_room\": \"string\",\n      \"url_online_room\": \"string\",\n      \"spoken_languages\": [\n        {\n          \"id\": 4025,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 9235,\n          \"name\": \"string\"\n        }\n      ],\n      \"speaker\": \"string\",\n      \"organizer\": \"string\",\n      \"contact\": \"string\",\n      \"is_internal\": \"string\",\n      \"theme\": \"string\",\n      \"vulgarization\": {\n        \"id\": 245,\n        \"name\": \"string\"\n      },\n      \"registration\": {\n        \"id\": 4200,\n        \"name\": \"string\"\n      },\n      \"keywords\": \"string\",\n      \"file\": \"string\",\n      \"icalendar_url\": \"https://jzdFlQGHnGrcrPxIqpsthW.bqiiRbQ8-4P\",\n      \"category\": {\n        \"id\": 3212,\n        \"name\": \"string\"\n      },\n      \"academic_calendar_category\": \"string\",\n      \"domains\": [\n        {\n          \"id\": 8844,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 4318,\n          \"name\": \"string\"\n        }\n      ],\n      \"mementos\": [\n        {\n          \"id\": 6641,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 7763,\n          \"name\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": 7115,\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"event_url\": \"https://gHUB.rvBVkU.C4,w8IJfUGUVRqUgDYO9nzgtIKR3D.B1pgwtWmxL\",\n      \"visual_url\": \"https://eLxROsqFBMEdbliVwdAUSf.crdklkG6ou-KuQ3nMkI-iHMzRjacfSrXikBblc4NOyfyB1RjIeva930wmKM.cG6btcMLBbsjbqx9hxvK9ml1\",\n      \"visual_large_url\": \"https://WwVBhCRVWtIuuhyAGgN.kvdOoF6BhcsEPlGqB9C.6Ze\",\n      \"visual_maxsize_url\": \"http://FtJcEZHqDbaewBQcyUSEZwfLAHIteG.ewvaIAOawDnuBuHT.IIP8,C+pi4C\",\n      \"lang\": \"string\",\n      \"start_date\": \"1967-07-27\",\n      \"end_date\": \"1985-09-26\",\n      \"start_time\": \"string\",\n      \"end_time\": \"string\",\n      \"description\": \"string\",\n      \"image_description\": \"string\",\n      \"creation_date\": \"1948-07-27T22:10:22.728Z\",\n      \"last_modification_date\": \"2001-02-24T21:39:46.323Z\",\n      \"link_label\": \"string\",\n      \"link_url\": \"string\",\n      \"canceled\": \"string\",\n      \"cancel_reason\": \"string\",\n      \"place_and_room\": \"string\",\n      \"url_place_and_room\": \"string\",\n      \"url_online_room\": \"string\",\n      \"spoken_languages\": [\n        {\n          \"id\": 667,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8802,\n          \"name\": \"string\"\n        }\n      ],\n      \"speaker\": \"string\",\n      \"organizer\": \"string\",\n      \"contact\": \"string\",\n      \"is_internal\": \"string\",\n      \"theme\": \"string\",\n      \"vulgarization\": {\n        \"id\": 7757,\n        \"name\": \"string\"\n      },\n      \"registration\": {\n        \"id\": 4398,\n        \"name\": \"string\"\n      },\n      \"keywords\": \"string\",\n      \"file\": \"string\",\n      \"icalendar_url\": \"https://ZnMJcZBMLrwWXNdZwdKTkGqLbkSMsTKkT.jmsfutg7wRW1XWO6AHNYBst.GFJcBPfDnvLxkayrPhV,E88X\",\n      \"category\": {\n        \"id\": 3678,\n        \"name\": \"string\"\n      },\n      \"academic_calendar_category\": \"string\",\n      \"domains\": [\n        {\n          \"id\": 5144,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 1362,\n          \"name\": \"string\"\n        }\n      ],\n      \"mementos\": [\n        {\n          \"id\": 9497,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 9837,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://actu.epfl.ch/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "35d591ca-b14a-4463-ad2e-4080aee799fe",
+    "name": "EPFL Actu News Categories Mementos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public REST API serving EPFL news (\"Actu\") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.\n\nContact Support:\n Name: EPFL Actu API",
+      "type": "text/plain"
+    }
+  }
+}

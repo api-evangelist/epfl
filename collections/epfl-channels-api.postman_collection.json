@@ -1,0 +1,410 @@
+{
+  "item": [
+    {
+      "id": "eab8640f-3066-4351-b617-ad56c8375d0d",
+      "name": "Channels",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "41607f3c-78fd-4209-adc5-2abf0531cac5",
+          "name": "List all Channel objects.",
+          "request": {
+            "name": "List all Channel objects.",
+            "description": {},
+            "url": {
+              "path": [
+                "channels",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00495658-5c07-49bc-b5d4-24ede76f2f40",
+              "name": "A paginated list of channels.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channels",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2062,\n  \"next\": \"https://BqSQxsR.rqYFUkAFh.I21doh.ZAXWI5ZnVaE1PqZnln4Rd5uFSIZtCgY+rX7iEsCu6J-wZ9+x\",\n  \"previous\": \"https://xfJIGU.jugJBOcSIO2Y2-6U+EXzd7dhGzdbYIeocLQMTBddfOdLp9FWJ.7I\",\n  \"results\": [\n    {\n      \"id\": 5040,\n      \"name\": \"string\",\n      \"fr_description\": \"string\",\n      \"en_description\": \"string\",\n      \"de_description\": \"string\",\n      \"is_active\": false\n    },\n    {\n      \"id\": 19,\n      \"name\": \"string\",\n      \"fr_description\": \"string\",\n      \"en_description\": \"string\",\n      \"de_description\": \"string\",\n      \"is_active\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b383913-b253-4e84-9f77-7c1c05f5ec4d",
+          "name": "Return the details about the given Channel id.",
+          "request": {
+            "name": "Return the details about the given Channel id.",
+            "description": {},
+            "url": {
+              "path": [
+                "channels",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) A unique value identifying this object."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da191c98-cc35-4b13-a447-4f3763d8a308",
+              "name": "A single channel.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channels",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) A unique value identifying this object."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7243,\n  \"name\": \"string\",\n  \"fr_description\": \"string\",\n  \"en_description\": \"string\",\n  \"de_description\": \"string\",\n  \"is_active\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1c732a1-2aa9-4731-a51d-b572153e43f7",
+          "name": "List news for a channel.",
+          "request": {
+            "name": "List news for a channel.",
+            "description": {},
+            "url": {
+              "path": [
+                "channels",
+                ":id",
+                "news",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) A unique value identifying this object."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7eb596b4-b87b-4383-92a5-f2cf3d7b2fc0",
+              "name": "News items for the channel.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channels",
+                    ":id",
+                    "news",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) A unique value identifying this object."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6695,\n  \"next\": \"http://bz.ejzYtalv.zomkgBfHG\",\n  \"previous\": \"https://bdsmMNiWXIy.qqqxxkIbEXHjjWwx1OawPY\",\n  \"results\": [\n    {\n      \"id\": 4211,\n      \"lang\": \"string\",\n      \"title\": \"string\",\n      \"subtitle\": \"string\",\n      \"text\": \"string\",\n      \"order\": 1202,\n      \"publish_date\": \"1972-05-01T10:18:06.381Z\",\n      \"visual_url\": \"http://uwZFJoUTxrwnZzMQRXmW.fmoeKO.3Y3ZTAhGLn9u2sZWuS4PD2tUIWBxD5Mgz\",\n      \"thumbnail_url\": \"https://CumXRrSsXnFGcNUAwD.jnrvciMie.7N,.3tuIS2mfHZphKqHavxcwM472Pmm6SDuP2MixIN3Hymf\",\n      \"visual_description\": \"string\",\n      \"short_vimeo_video_id\": \"string\",\n      \"short_vimeo_video_credits\": \"string\",\n      \"video\": \"string\",\n      \"channel\": {\n        \"id\": 384,\n        \"name\": \"string\",\n        \"fr_description\": \"string\",\n        \"en_description\": \"string\",\n        \"de_description\": \"string\",\n        \"is_active\": true\n      },\n      \"category\": {\n        \"id\": 789,\n        \"fr_label\": \"string\",\n        \"en_label\": \"string\",\n        \"de_label\": \"string\"\n      },\n      \"news_url\": \"https://LQbuZZpOGgXcAhdzpuKtToRFjt.wzxdQVHpet5ADgf6,9R7lc.UdpW.FuINhy,8rWP.oL7YK2e.fURtSwnH\",\n      \"themes\": [\n        {\n          \"id\": 8243,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 4587,\n          \"name\": \"string\"\n        }\n      ],\n      \"publics\": [\n        {\n          \"id\": 9225,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 5659,\n          \"name\": \"string\"\n        }\n      ],\n      \"faculties\": [\n        {\n          \"id\": 1334,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 5599,\n          \"name\": \"string\"\n        }\n      ],\n      \"projects\": [\n        {\n          \"id\": 7124,\n          \"title\": \"string\",\n          \"news_url\": \"http://lPFhzJMWfEpMFNjHe.errvrL2RQ8iSYm21kNYxJ-HHhYQh75UWrK.l\"\n        },\n        {\n          \"id\": 8614,\n          \"title\": \"string\",\n          \"news_url\": \"http://AMoTAoTIDhMvevxfAtuQrvkgbv.ezpNuhkfmurVnHDMbNwZAn7sTByYPV4ahqOcp+I,.uJq\"\n        }\n      ],\n      \"funding\": \"string\",\n      \"references\": \"string\",\n      \"is_under_cc_license\": false\n    },\n    {\n      \"id\": 1482,\n      \"lang\": \"string\",\n      \"title\": \"string\",\n      \"subtitle\": \"string\",\n      \"text\": \"string\",\n      \"order\": 5817,\n      \"publish_date\": \"1968-10-23T16:52:46.349Z\",\n      \"visual_url\": \"http://JCDUYqUxldkOlUEBDEO.nicAuJDpm\",\n      \"thumbnail_url\": \"http://rOv.usG6xtRzvUv2.KFxTzsGh7ld9Qsh8S0eOCj0tc+jIpfj\",\n      \"visual_description\": \"string\",\n      \"short_vimeo_video_id\": \"string\",\n      \"short_vimeo_video_credits\": \"string\",\n      \"video\": \"string\",\n      \"channel\": {\n        \"id\": 229,\n        \"name\": \"string\",\n        \"fr_description\": \"string\",\n        \"en_description\": \"string\",\n        \"de_description\": \"string\",\n        \"is_active\": false\n      },\n      \"category\": {\n        \"id\": 4174,\n        \"fr_label\": \"string\",\n        \"en_label\": \"string\",\n        \"de_label\": \"string\"\n      },\n      \"news_url\": \"http://rAnpWOwCNEvVC.ilknK-f+R.Xt\",\n      \"themes\": [\n        {\n          \"id\": 5149,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8886,\n          \"name\": \"string\"\n        }\n      ],\n      \"publics\": [\n        {\n          \"id\": 5090,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 8587,\n          \"name\": \"string\"\n        }\n      ],\n      \"faculties\": [\n        {\n          \"id\": 4593,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 1800,\n          \"name\": \"string\"\n        }\n      ],\n      \"projects\": [\n        {\n          \"id\": 9678,\n          \"title\": \"string\",\n          \"news_url\": \"http://IvsqpWQSnLkIXztOeKkSfjvkRM.plZSle7GXiHvs5Di.QEbHiRggX0-yDOlQ-lYmjx+3BaLwTY56\"\n        },\n        {\n          \"id\": 8753,\n          \"title\": \"string\",\n          \"news_url\": \"http://mDnmFIpNkmYOsjRosKrqHtqEaa.rzbbz9k9enXK5RVlDSXfb4rgLBiuSFg9GjkdCUeGWABU8V7ZayQWMArw+CiTNpSyES\"\n        }\n      ],\n      \"funding\": \"string\",\n      \"references\": \"string\",\n      \"is_under_cc_license\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c683cf9-b24a-4eb2-ad07-35041948038e",
+          "name": "List projects for a channel.",
+          "request": {
+            "name": "List projects for a channel.",
+            "description": {},
+            "url": {
+              "path": [
+                "channels",
+                ":id",
+                "projects",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) A unique value identifying this object."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3003c52f-e8bc-405d-ab32-560b21e877a4",
+              "name": "Projects for the channel.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channels",
+                    ":id",
+                    "projects",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) A unique value identifying this object."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8449,\n  \"next\": \"https://XvtzjhJTNMBgCgnJgbQWVAmXvHa.axccnYsMSLv9oDACTKfOjWwKBtI8iSlIyTZOyFTHuzZ\",\n  \"previous\": \"http://LINUamzuVdRzHmxrWKOpQMoIVO.urzQ.aMwHKR\",\n  \"results\": [\n    {\n      \"id\": 6357,\n      \"title\": \"string\",\n      \"news_url\": \"https://gRFfQDRdSdHPEWcNYqKFoToitIDsgwKW.fsBZir3l+GEVGFqql0LS5saUPdjyUALqy,eGC-B45iy5uy8O7lS4a\"\n    },\n    {\n      \"id\": 5187,\n      \"title\": \"string\",\n      \"news_url\": \"http://RiiSmyCjGGXCuu.oyhpucj2BBP1H6AJgTE2vGvDXKGDcRkur,g9e.JT\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://actu.epfl.ch/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bac6fc1f-8ddd-40f6-8b20-41a45bba3e56",
+    "name": "EPFL Actu News Categories Channels API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public REST API serving EPFL news (\"Actu\") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.\n\nContact Support:\n Name: EPFL Actu API",
+      "type": "text/plain"
+    }
+  }
+}

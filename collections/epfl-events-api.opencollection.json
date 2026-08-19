@@ -1,0 +1,206 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EPFL Actu News Categories Events API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Event objects with filtering.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/events/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "Filters the events containing the given text in the title."
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "Filters the events containing the given text in the description."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Filters the events which start at the given start_date."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "Filters the events which finish at the given end_date."
+              },
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query",
+                "description": "Filters the events which start at the given start_time."
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query",
+                "description": "Filters the events which finish at the given end_time."
+              },
+              {
+                "name": "start_year",
+                "value": "",
+                "type": "query",
+                "description": "Filters the events which start at the given start_year."
+              },
+              {
+                "name": "place_and_room",
+                "value": "",
+                "type": "query",
+                "description": "Filters the events containing the given text in the place and room."
+              },
+              {
+                "name": "spoken_languages",
+                "value": "",
+                "type": "query",
+                "description": "Spoken Language ID. Return only the events with the given spoken language."
+              },
+              {
+                "name": "memento",
+                "value": "",
+                "type": "query",
+                "description": "Memento ID. Return only the events in the given memento."
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Category ID. Return only the events linked to the given category."
+              },
+              {
+                "name": "theme",
+                "value": "",
+                "type": "query",
+                "description": "Theme name. Return only the events linked to the given theme."
+              },
+              {
+                "name": "keywords",
+                "value": "",
+                "type": "query",
+                "description": "Keywords name. Return only the events linked to the given keywords."
+              },
+              {
+                "name": "vulgarization",
+                "value": "",
+                "type": "query",
+                "description": "Vulgarization ID. Return only the events with the given vulgarization."
+              },
+              {
+                "name": "registration",
+                "value": "",
+                "type": "query",
+                "description": "Registration ID. Return only the events linked to the given registration."
+              },
+              {
+                "name": "domains",
+                "value": "",
+                "type": "query",
+                "description": "Domain ID. Return only the events linked to the given domain."
+              },
+              {
+                "name": "academic_calendar_category",
+                "value": "",
+                "type": "query",
+                "description": "Academic Calendar Category ID. Return only matching events."
+              },
+              {
+                "name": "speaker",
+                "value": "",
+                "type": "query",
+                "description": "Filters the events containing the given text in the speaker."
+              },
+              {
+                "name": "organizer",
+                "value": "",
+                "type": "query",
+                "description": "Filters the events containing the given text in the organizer."
+              },
+              {
+                "name": "contact",
+                "value": "",
+                "type": "query",
+                "description": "Filters the events containing the given text in the contact."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              }
+            ]
+          },
+          "docs": "List all Event objects with filtering."
+        },
+        {
+          "info": {
+            "name": "Return the details about the given Event id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/events/:event__pk/",
+            "params": [
+              {
+                "name": "event__pk",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this event."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              }
+            ]
+          },
+          "docs": "Return the details about the given Event id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

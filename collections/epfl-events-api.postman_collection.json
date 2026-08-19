@@ -1,0 +1,452 @@
+{
+  "item": [
+    {
+      "id": "a057e40f-68c3-4015-9531-b567d6f29f3e",
+      "name": "Events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f935b07-3b91-4b63-83d7-c4275ac4a71e",
+          "name": "List all Event objects with filtering.",
+          "request": {
+            "name": "List all Event objects with filtering.",
+            "description": {},
+            "url": {
+              "path": [
+                "events",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "Filters the events containing the given text in the title."
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "Filters the events containing the given text in the description."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "Filters the events which start at the given start_date."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "Filters the events which finish at the given end_date."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "<string>",
+                  "description": "Filters the events which start at the given start_time."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "<string>",
+                  "description": "Filters the events which finish at the given end_time."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_year",
+                  "value": "<number>",
+                  "description": "Filters the events which start at the given start_year."
+                },
+                {
+                  "disabled": false,
+                  "key": "place_and_room",
+                  "value": "<string>",
+                  "description": "Filters the events containing the given text in the place and room."
+                },
+                {
+                  "disabled": false,
+                  "key": "spoken_languages",
+                  "value": "<string>",
+                  "description": "Spoken Language ID. Return only the events with the given spoken language."
+                },
+                {
+                  "disabled": false,
+                  "key": "memento",
+                  "value": "<number>",
+                  "description": "Memento ID. Return only the events in the given memento."
+                },
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Category ID. Return only the events linked to the given category."
+                },
+                {
+                  "disabled": false,
+                  "key": "theme",
+                  "value": "<string>",
+                  "description": "Theme name. Return only the events linked to the given theme."
+                },
+                {
+                  "disabled": false,
+                  "key": "keywords",
+                  "value": "<string>",
+                  "description": "Keywords name. Return only the events linked to the given keywords."
+                },
+                {
+                  "disabled": false,
+                  "key": "vulgarization",
+                  "value": "<string>",
+                  "description": "Vulgarization ID. Return only the events with the given vulgarization."
+                },
+                {
+                  "disabled": false,
+                  "key": "registration",
+                  "value": "<string>",
+                  "description": "Registration ID. Return only the events linked to the given registration."
+                },
+                {
+                  "disabled": false,
+                  "key": "domains",
+                  "value": "<string>",
+                  "description": "Domain ID. Return only the events linked to the given domain."
+                },
+                {
+                  "disabled": false,
+                  "key": "academic_calendar_category",
+                  "value": "<number>",
+                  "description": "Academic Calendar Category ID. Return only matching events."
+                },
+                {
+                  "disabled": false,
+                  "key": "speaker",
+                  "value": "<string>",
+                  "description": "Filters the events containing the given text in the speaker."
+                },
+                {
+                  "disabled": false,
+                  "key": "organizer",
+                  "value": "<string>",
+                  "description": "Filters the events containing the given text in the organizer."
+                },
+                {
+                  "disabled": false,
+                  "key": "contact",
+                  "value": "<string>",
+                  "description": "Filters the events containing the given text in the contact."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f3a20845-b5cd-4c6d-845b-bd2d161781e4",
+              "name": "A paginated list of events.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_year",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "place_and_room",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "spoken_languages",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "memento",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "theme",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "vulgarization",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "registration",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "domains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "academic_calendar_category",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "speaker",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "organizer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "contact",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9827,\n  \"next\": \"http://eAAkRAWSvfKhgktBVBEsPhahdAF.cgAvKIpfylEmniOc2S7CYq\",\n  \"previous\": \"http://wrOohaGuUcgTqKSaKbPFAMvzc.itHzEW-YK-zhGQ3KlyN9ZUjCJ2mssUKlR+Oy9NrYc36W6cRtyHRStfGGsCqiYcJPnqcriuLpQ\",\n  \"results\": [\n    {\n      \"id\": 585,\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"event_url\": \"http://NzsUBsYxUEOwqYSvcfKUkNCQugcjcLASK.akO+ab3ORHsl.47rG0IwyhiBL-UZ0BVrhuTWG6oDU.AqWlhUNsSfaYWFtHGOLWjphcMR1lO,9S1APz\",\n      \"visual_url\": \"http://xZRffOweY.mrpmxaGXYRiQSAz\",\n      \"visual_large_url\": \"http://pUUOMehOtogSOsqaW.svxgrPV0Ohw-T9dJzc-2Gsxa4impUDdgJERB2CbNpukSKM\",\n      \"visual_maxsize_url\": \"https://uumdWgWhp.jeZUScF.FtUOHguP0ixTpGDlV8B5oeUmezGXn\",\n      \"lang\": \"string\",\n      \"start_date\": \"2008-12-22\",\n      \"end_date\": \"1955-05-01\",\n      \"start_time\": \"string\",\n      \"end_time\": \"string\",\n      \"description\": \"string\",\n      \"image_description\": \"string\",\n      \"creation_date\": \"2018-09-11T03:48:57.932Z\",\n      \"last_modification_date\": \"1958-10-19T20:09:33.214Z\",\n      \"link_label\": \"string\",\n      \"link_url\": \"string\",\n      \"canceled\": \"string\",\n      \"cancel_reason\": \"string\",\n      \"place_and_room\": \"string\",\n      \"url_place_and_room\": \"string\",\n      \"url_online_room\": \"string\",\n      \"spoken_languages\": [\n        {\n          \"id\": 370,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 7135,\n          \"name\": \"string\"\n        }\n      ],\n      \"speaker\": \"string\",\n      \"organizer\": \"string\",\n      \"contact\": \"string\",\n      \"is_internal\": \"string\",\n      \"theme\": \"string\",\n      \"vulgarization\": {\n        \"id\": 2053,\n        \"name\": \"string\"\n      },\n      \"registration\": {\n        \"id\": 2517,\n        \"name\": \"string\"\n      },\n      \"keywords\": \"string\",\n      \"file\": \"string\",\n      \"icalendar_url\": \"http://iaNPFVpVvRgPiIEVnIIrWXCkSpzFiPXC.poRPXc.kqzvrBjmarFkirJVUBX01fPwaLWWOKN9KDS3df\",\n      \"category\": {\n        \"id\": 9858,\n        \"name\": \"string\"\n      },\n      \"academic_calendar_category\": \"string\",\n      \"domains\": [\n        {\n          \"id\": 3610,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 7369,\n          \"name\": \"string\"\n        }\n      ],\n      \"mementos\": [\n        {\n          \"id\": 4360,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 1920,\n          \"name\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": 865,\n      \"title\": \"string\",\n      \"slug\": \"string\",\n      \"event_url\": \"http://xWYGUojsrlrkjPUPJtyMCbOVpi.abK8geGA9PxSdUlzh7tztlSXFlpdKnZxn+k2M7U0UIlNjMbGeeX47,\",\n      \"visual_url\": \"https://cTYf.hxxgFQqjCMff.MHMBXiilIJfpruXBOtVxq+akpnNoCx8WRyEUh\",\n      \"visual_large_url\": \"http://XzATMFGOZDzmmHFDNXnKY.vktPxGJM6CZF6v+J.shu3.RhNL9IVdLo2uzG.1HaY4\",\n      \"visual_maxsize_url\": \"http://ImATiSnIcqMdIFbOeRcmvKSIbifuq.upfmgtqUBaueqCPO7WbjI1LbO..AXM1i9gpwVRbsJsJWkBSUoozBCyZR8reTpxpGsvypCQaPOoPwptrq\",\n      \"lang\": \"string\",\n      \"start_date\": \"1965-07-11\",\n      \"end_date\": \"1977-02-26\",\n      \"start_time\": \"string\",\n      \"end_time\": \"string\",\n      \"description\": \"string\",\n      \"image_description\": \"string\",\n      \"creation_date\": \"2016-10-27T13:00:06.452Z\",\n      \"last_modification_date\": \"1964-03-09T17:51:35.510Z\",\n      \"link_label\": \"string\",\n      \"link_url\": \"string\",\n      \"canceled\": \"string\",\n      \"cancel_reason\": \"string\",\n      \"place_and_room\": \"string\",\n      \"url_place_and_room\": \"string\",\n      \"url_online_room\": \"string\",\n      \"spoken_languages\": [\n        {\n          \"id\": 6314,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 3291,\n          \"name\": \"string\"\n        }\n      ],\n      \"speaker\": \"string\",\n      \"organizer\": \"string\",\n      \"contact\": \"string\",\n      \"is_internal\": \"string\",\n      \"theme\": \"string\",\n      \"vulgarization\": {\n        \"id\": 6641,\n        \"name\": \"string\"\n      },\n      \"registration\": {\n        \"id\": 2498,\n        \"name\": \"string\"\n      },\n      \"keywords\": \"string\",\n      \"file\": \"string\",\n      \"icalendar_url\": \"http://bwflRpWWcWatPsHqZAdLtnzVyIndbjUOa.urlxRK.z-KISBI\",\n      \"category\": {\n        \"id\": 5103,\n        \"name\": \"string\"\n      },\n      \"academic_calendar_category\": \"string\",\n      \"domains\": [\n        {\n          \"id\": 4749,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 6295,\n          \"name\": \"string\"\n        }\n      ],\n      \"mementos\": [\n        {\n          \"id\": 9529,\n          \"name\": \"string\"\n        },\n        {\n          \"id\": 5456,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10b47977-4dc1-475b-8840-d0d33c20fd90",
+          "name": "Return the details about the given Event id.",
+          "request": {
+            "name": "Return the details about the given Event id.",
+            "description": {},
+            "url": {
+              "path": [
+                "events",
+                ":event__pk",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "event__pk",
+                  "description": "(Required) A unique integer value identifying this event."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec1ac10b-1ad1-446c-a5e9-254ce37c5908",
+              "name": "A single event.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    ":event__pk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "event__pk",
+                      "description": "(Required) A unique integer value identifying this event."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4628,\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"event_url\": \"http://QFdzLiMCLkav.duecc50om,PJzlRoGGamuOvWCuorG0itLUBgUvZG7kO7yvaROYxl489yEOBij9\",\n  \"visual_url\": \"https://YqHXbXUuqLuCGwtE.foznAd-Zle4Rrwj\",\n  \"visual_large_url\": \"http://PWtQua.bhyczWg+rTZN,A-xs.ID2YaGIpGHR0PuUYPowxiQpOJSwUhHF.g9o0ABNzfA4iBrZ\",\n  \"visual_maxsize_url\": \"http://wGUOmhICTUBIsHRtTVQbhhVNgMfJ.usP-0CNwb\",\n  \"lang\": \"string\",\n  \"start_date\": \"2011-01-20\",\n  \"end_date\": \"2019-01-10\",\n  \"start_time\": \"string\",\n  \"end_time\": \"string\",\n  \"description\": \"string\",\n  \"image_description\": \"string\",\n  \"creation_date\": \"1989-03-26T18:53:45.540Z\",\n  \"last_modification_date\": \"2020-01-15T14:43:37.131Z\",\n  \"link_label\": \"string\",\n  \"link_url\": \"string\",\n  \"canceled\": \"string\",\n  \"cancel_reason\": \"string\",\n  \"place_and_room\": \"string\",\n  \"url_place_and_room\": \"string\",\n  \"url_online_room\": \"string\",\n  \"spoken_languages\": [\n    {\n      \"id\": 2007,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 4967,\n      \"name\": \"string\"\n    }\n  ],\n  \"speaker\": \"string\",\n  \"organizer\": \"string\",\n  \"contact\": \"string\",\n  \"is_internal\": \"string\",\n  \"theme\": \"string\",\n  \"vulgarization\": {\n    \"id\": 5277,\n    \"name\": \"string\"\n  },\n  \"registration\": {\n    \"id\": 7074,\n    \"name\": \"string\"\n  },\n  \"keywords\": \"string\",\n  \"file\": \"string\",\n  \"icalendar_url\": \"http://jnjOfAURXeTnxCEILdpba.vlyqzqQKREXtwyKiLCEnf0nZYUqp+Bcsc.\",\n  \"category\": {\n    \"id\": 8422,\n    \"name\": \"string\"\n  },\n  \"academic_calendar_category\": \"string\",\n  \"domains\": [\n    {\n      \"id\": 8901,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 8017,\n      \"name\": \"string\"\n    }\n  ],\n  \"mementos\": [\n    {\n      \"id\": 5445,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 3570,\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://actu.epfl.ch/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "61a4df67-dec5-4302-9b13-28d20d98514c",
+    "name": "EPFL Actu News Categories Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public REST API serving EPFL news (\"Actu\") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.\n\nContact Support:\n Name: EPFL Actu API",
+      "type": "text/plain"
+    }
+  }
+}

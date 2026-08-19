@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EPFL Actu Categories News API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "News",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all News objects.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/news/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Preferred language for localized content."
+              }
+            ]
+          },
+          "docs": "List all News objects."
+        },
+        {
+          "info": {
+            "name": "Return the details about the given News id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/news/:news__pk/",
+            "params": [
+              {
+                "name": "news__pk",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this news item."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Preferred language for localized content."
+              }
+            ]
+          },
+          "docs": "Return the details about the given News id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

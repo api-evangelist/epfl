@@ -1,0 +1,188 @@
+{
+  "item": [
+    {
+      "id": "e22e7418-a5bb-4aff-83b5-1f74f160c0aa",
+      "name": "Registrations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "834ef995-efef-47d6-988d-1d34415f1c21",
+          "name": "List all Registration objects.",
+          "request": {
+            "name": "List all Registration objects.",
+            "description": {},
+            "url": {
+              "path": [
+                "registrations",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f57cd0a-751c-47c3-b7ac-ac27feffd7ca",
+              "name": "A list of registrations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "registrations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 5648,\n  \"next\": \"http://BtERjPzKyThJnPVz.ikeaAcu0g.bnDwgi2dqqdGoDBRBwQSrmbVLKarJY.SzvGJSH1tbf-PaSB\",\n  \"previous\": \"http://GaoRoFhodb.irmuL5q8Y8KRfP4WgvokqLdjygxKanUs82YIXg0znKG5\",\n  \"results\": [\n    {\n      \"id\": 3298,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 2073,\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84832708-4201-432d-9338-eebf72bd7f24",
+          "name": "Return the details about the given Registration id.",
+          "request": {
+            "name": "Return the details about the given Registration id.",
+            "description": {},
+            "url": {
+              "path": [
+                "registrations",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this object."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba163e51-204b-4927-9970-fb2c0733ec3c",
+              "name": "A single registration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "registrations",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this object."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5195,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://actu.epfl.ch/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e59a28b2-e654-49ab-9b40-dfdcfec3c9cf",
+    "name": "EPFL Actu News Categories Registrations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public REST API serving EPFL news (\"Actu\") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.\n\nContact Support:\n Name: EPFL Actu API",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EPFL Actu News Categories Themes API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Themes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Theme objects.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/themes/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ]
+          },
+          "docs": "List all Theme objects."
+        },
+        {
+          "info": {
+            "name": "Return the details about the given Theme id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/themes/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this object."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ]
+          },
+          "docs": "Return the details about the given Theme id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EPFL Actu News Categories Vulgarizations API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vulgarizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Vulgarization objects.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/vulgarizations/"
+          },
+          "docs": "List all Vulgarization objects."
+        },
+        {
+          "info": {
+            "name": "Return the details about the given Vulgarization id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/vulgarizations/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this object."
+              }
+            ]
+          },
+          "docs": "Return the details about the given Vulgarization id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

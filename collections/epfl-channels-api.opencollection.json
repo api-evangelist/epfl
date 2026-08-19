@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "EPFL Actu News Categories Channels API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Channels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all Channel objects.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/channels/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ]
+          },
+          "docs": "List all Channel objects."
+        },
+        {
+          "info": {
+            "name": "Return the details about the given Channel id.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/channels/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this object."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ]
+          },
+          "docs": "Return the details about the given Channel id."
+        },
+        {
+          "info": {
+            "name": "List news for a channel.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/channels/:id/news/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this object."
+              }
+            ]
+          },
+          "docs": "List news for a channel."
+        },
+        {
+          "info": {
+            "name": "List projects for a channel.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://actu.epfl.ch/api/v1/channels/:id/projects/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this object."
+              }
+            ]
+          },
+          "docs": "List projects for a channel."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
