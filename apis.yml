@@ -80,6 +80,19 @@ tags:
   - Open Access
   - Identity Federation
   - News
+  - Event
+  - Switzerland
+  - Europe
+tags_raw:
+  - University
+  - Higher Education
+  - Education
+  - Technical University
+  - Research
+  - Research Repository
+  - Open Access
+  - Identity Federation
+  - News
   - Events
   - Switzerland
   - Europe
@@ -144,6 +157,10 @@ apis:
   humanURL: https://memento.epfl.ch/
   baseURL: https://memento.epfl.ch/api/v1/
   tags:
+  - Event
+  - Calendar
+  - University
+  tags_raw:
   - Events
   - Calendar
   - University
