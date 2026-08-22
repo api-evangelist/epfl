@@ -33,6 +33,28 @@
 > **Response times.** Acknowledgement within **one business day**; removal or restriction within
 > **two business days**; corrections and re-scores within **five business days**.
 >
+> **Not from the company, and here with a question?** You are welcome here — we would rather be the
+> front line and point you the right way than have a good report go nowhere. What this repository
+> can answer is narrow, though, so it is worth knowing who you are actually looking for:
+>
+> - **A question about how the API works, an account, billing, or a bug in the service** — that is
+>   the company's own support, not us. We profile this API; we do not operate it and cannot see
+>   your account.
+> - **A bug in an open-source project we only catalog** — file it on that project's own repository.
+>   This has happened with a real and correct bug report that reached us instead of the people who
+>   could fix it, which helped nobody.
+> - **Anything about this listing itself** — the description, the tags, the rating, a missing or
+>   wrong artifact — is ours. Open an issue here.
+> - **Not sure, or something general about API Evangelist or APIs.io** — open an issue on the
+>   [APIs.io Inbox](https://github.com/api-search/inbox) and we will route it.
+>
+> **This repository contains no software, and we will never ask you to download anything.** There is
+> no build, release, installer, or binary here — only text and machine-readable API descriptions, so
+> there is nothing here that can be "corrupt" or need "repairing". Any issue, comment, or email
+> claiming otherwise and offering a download link is not from us and is hostile. Do not follow the
+> link; it is a lure. Report it to GitHub and, if you like, tell us at
+> [info@apievangelist.com](mailto:info@apievangelist.com) so we can take it down.
+>
 > **On a security or compliance team?** Email
 > [info@apievangelist.com](mailto:info@apievangelist.com) with *security* in the subject line and
 > you will get a person, not a form. We will tell you exactly which public URLs this profile was
@@ -42,7 +64,9 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-EPFL (École Polytechnique Fédérale de Lausanne) is a public research university in Lausanne, Switzerland, ranked #19 in the QS World University Rankings 2025. This repository catalogs EPFL's public developer and API footprint as an [APIs.json](https://apisjson.org) provider profile.
+EPFL (École polytechnique fédérale de Lausanne) is a Swiss federal institute of technology in Lausanne, one of the two federal technical universities in the ETH Domain. This repository catalogs EPFL's public developer and API footprint as an [APIs.json](https://apisjson.org) provider profile.
+
+Profiled under the **university pipeline**, which settles *who operates* each surface before saving anything. Every entry in `apis.yml` carries an `x-operator` of `institution` or `tenant`.
 
 - APIs.json: https://raw.githubusercontent.com/api-evangelist/epfl/refs/heads/main/apis.yml
 - Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=epfl-api-evangelist&utm_content=repo
@@ -55,13 +79,26 @@ EPFL (École Polytechnique Fédérale de Lausanne) is a public research universi
 
 ## Tags
 
-Education, Higher Education, University, Research, Open Data, Switzerland, Europe
+University, Higher Education, Education, Technical University, Research, Research Repository, Open Access, Identity Federation, News, Events, Switzerland, Europe
 
 ## APIs
 
-- **EPFL Actu News API** — public REST API for EPFL news, projects and channels. Docs: https://actu.epfl.ch/api-docs/ (base `https://actu.epfl.ch/api/v1/`)
-- **EPFL Memento Events API** — public REST API for EPFL events and calendars. Docs: https://memento.epfl.ch/api/docs/ (base `https://memento.epfl.ch/api/v1/`)
-- **EPFL Infoscience Repository API** — DSpace 7 HATEOAS/HAL REST API and OAI-PMH endpoint for EPFL research output. REST: https://infoscience.epfl.ch/server/api · OAI-PMH: https://infoscience.epfl.ch/oai/request?verb=Identify
+### Institution-operated (EPFL runs the host and the service)
+
+- **EPFL Actu News API** — public, read-only REST API for EPFL news, projects, channels, faculties, categories, themes and publics. Docs: https://actu.epfl.ch/api-docs/ (base `https://actu.epfl.ch/api/v1/`)
+- **EPFL Memento Events API** — public, read-only REST API for EPFL events, mementos, registrations, domains, spoken languages and vulgarizations. Docs: https://memento.epfl.ch/api/docs/ (base `https://memento.epfl.ch/api/v1/`)
+- **EPFL Infoscience** — self-hosted DSpace-CRIS institutional repository. HAL/HATEOAS REST: https://infoscience.epfl.ch/server/api · **OAI-PMH: https://infoscience.epfl.ch/server/oai/openaire4?verb=Identify** (OpenAIRE Guidelines v4, DataCite Kernel 4, ORCID identifiers)
+- **EPFL GETprime** — qPCR primer-design API from the Gene Expression Core Facility. Docs: https://getprime.epfl.ch/api_documentation (base `https://getprime.epfl.ch/`)
+- **EPFL SAML federation entities** — Shibboleth service providers at `tequila.epfl.ch` and `companion.epfl.ch`, IdP entity `https://idp.epfl.ch/idp/shibboleth` with REFEDS Research & Scholarship and Sirtfi, published in the SWITCHaai aggregate
+- **EPFL Graph Search** — live `/api` router at https://graphsearch.epfl.ch/, no documented routes, behind a Cloudflare bot challenge
+- **go.epfl.ch** — URL shortener API, gated to EPFL community token holders
+
+### Tenant (EPFL's data, a vendor's contract — recorded, not credited)
+
+- **Library discovery on swisscovery** — https://epfl.swisscovery.ch/ CNAMEs to `slsp-epfl.primo.exlibrisgroup.com`; Ex Libris Primo VE + Alma delivered through the SLSP consortium
+- **Identity provider** — the `idp.epfl.ch` entityID's SSO endpoints resolve to `epfl.login.eduid.ch`, a hosted IdP on SWITCH edu-ID
+
+No Ex Libris, SWITCH or DSpace specification is saved under EPFL's slug.
 
 ## Plans, Rate Limits, and FinOps
 
@@ -69,21 +106,44 @@ Education, Higher Education, University, Research, Open Data, Switzerland, Europ
 - Rate Limits: [rate-limits/epfl-rate-limits.yml](rate-limits/epfl-rate-limits.yml)
 - FinOps: [finops/epfl-finops.yml](finops/epfl-finops.yml)
 
+## Conformance, errors, lifecycle, scopes
+
+- Conformance: [conformance/epfl-conformance.yml](conformance/epfl-conformance.yml) — `education` regime standards, probed
+- Errors: [errors/epfl-problem-types.yml](errors/epfl-problem-types.yml)
+- Lifecycle: [lifecycle/epfl-lifecycle.yml](lifecycle/epfl-lifecycle.yml)
+- Scopes: [scopes/epfl-scopes.yml](scopes/epfl-scopes.yml) — no OAuth; the SAML attribute-release surface in its place
+
 ## Timestamps
 
 - Created: 2026-06-03
-- Modified: 2026-06-03
+- Modified: 2026-08-19
 
 ## Common Properties
 
 - Website: https://www.epfl.ch
+- Course catalog: https://edu.epfl.ch/
+- Research computing (SCITAS): https://www.epfl.ch/research/facilities/scitas/
+- AI policy: https://www.epfl.ch/education/teaching/index-html/ai-teaching/guidelines-for-the-use-of-ai-in-teaching-at-epfl/
 - GitHub: https://github.com/epfl-si
 - LinkedIn: https://www.linkedin.com/school/epfl/
 - Review: [review.yml](review.yml)
 
 ## Notes
 
-All endpoints were probed live on 2026-06-03. The Actu and Memento APIs publish live interactive documentation and default to unauthenticated REST access. Infoscience runs DSpace 7.6.2 with a public REST API and OAI-PMH harvesting. EPFL has no single unified developer portal, and some services (e.g. `go.epfl.ch`) are gated to the EPFL community with a token. No endpoints, docs, or properties were fabricated; only confirmed resources are listed.
+All endpoints were re-probed live on **2026-08-19**. EPFL publishes **no OpenAPI** — both public APIs
+document themselves as Django REST Framework CoreAPI schemas, and `?format=openapi` returns 404 — so
+every OpenAPI in `openapi/` is derived by API Evangelist and carries `x-provenance.method: derived`.
+
+Three defects from the 2026-06-03 pass were corrected: six derived contracts pointed at
+`actu.epfl.ch` for resources only `memento.epfl.ch` serves; the OAI-PMH pointer
+(`/oai/request`) is a soft-404 returning a 486 KB app shell and was replaced with the live
+`/server/oai/openaire4`; and the profile carried an "Open Data" tag with no portal behind it —
+`data.epfl.ch` redirects to a laboratory page.
+
+Genuinely absent, and stated as such: no public course-catalog or timetable API, no open-data portal,
+no API gateway (`api.epfl.ch` resolves to RFC 1918 space), no developer portal, no plans, no
+rate-limit documentation, no deprecation policy, no `llms.txt`. The `security.txt` is PGP-signed but
+expired (Expires 2026-01-02). No endpoints, docs, or properties were fabricated.
 
 ## Maintainers
 
