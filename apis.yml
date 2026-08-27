@@ -104,14 +104,14 @@ apis:
   name: EPFL Actu News API
   x-operator: institution
   x-operator-basis: >-
-    actu.epfl.ch is under EPFL's own registrable domain and is run by EPFL-SI. The application,
-    the data and the endpoint are all EPFL's.
+    actu.epfl.ch is under EPFL's own registrable domain and is run by EPFL-SI. The application, the data
+    and the endpoint are all EPFL's.
   description: >-
-    EPFL's public news API, serving the Actu newsroom — news, projects, channels, faculties,
-    categories, themes and publics. Django REST Framework, read-only (Allow: GET, HEAD, OPTIONS),
-    unauthenticated by default, with optional Token and Basic schemes declared. Documented as an
-    interactive CoreAPI schema, not as OpenAPI; ?format=openapi returns 404. The OpenAPIs below
-    are derived by API Evangelist from that CoreAPI schema plus live probes on 2026-08-19.
+    EPFL's public news API, serving the Actu newsroom — news, projects, channels, faculties, categories,
+    themes and publics. Django REST Framework, read-only (Allow: GET, HEAD, OPTIONS), unauthenticated
+    by default, with optional Token and Basic schemes declared. Documented as an interactive CoreAPI schema,
+    not as OpenAPI; ?format=openapi returns 404. The OpenAPIs below are derived by API Evangelist from
+    that CoreAPI schema plus live probes on 2026-08-19.
   humanURL: https://actu.epfl.ch/
   baseURL: https://actu.epfl.ch/api/v1/
   tags:
@@ -144,16 +144,15 @@ apis:
 - aid: epfl:memento-events-api
   name: EPFL Memento Events API
   x-operator: institution
-  x-operator-basis: >-
-    memento.epfl.ch is under EPFL's own registrable domain and is run by EPFL-SI.
+  x-operator-basis: memento.epfl.ch is under EPFL's own registrable domain and is run by EPFL-SI.
   description: >-
-    EPFL's public events and agenda API, serving the Memento calendar — events, mementos,
-    registrations, domains, categories, faculties, spoken languages and vulgarizations. Django REST
-    Framework, read-only and unauthenticated by default, documented as an interactive CoreAPI
-    schema. Note that Memento and Actu share a resource vocabulary but not a resource set: only
-    /categories/ and /faculties/ answer on both hosts. The repo previously pointed every derived
-    contract at actu.epfl.ch, including six resources actu.epfl.ch 404s on; that was corrected on
-    2026-08-19 by probing all thirteen collections against both hosts.
+    EPFL's public events and agenda API, serving the Memento calendar — events, mementos, registrations,
+    domains, categories, faculties, spoken languages and vulgarizations. Django REST Framework, read-only
+    and unauthenticated by default, documented as an interactive CoreAPI schema. Note that Memento and
+    Actu share a resource vocabulary but not a resource set: only /categories/ and /faculties/ answer
+    on both hosts. The repo previously pointed every derived contract at actu.epfl.ch, including six resources
+    actu.epfl.ch 404s on; that was corrected on 2026-08-19 by probing all thirteen collections against
+    both hosts.
   humanURL: https://memento.epfl.ch/
   baseURL: https://memento.epfl.ch/api/v1/
   tags:
@@ -193,19 +192,17 @@ apis:
   name: EPFL Infoscience Institutional Repository
   x-operator: institution
   x-operator-basis: >-
-    infoscience.epfl.ch is EPFL's own host, not an account on a vendor's platform. The software is
-    DSpace-CRIS — the OAI provider identifies itself as "DSpace-CRIS OAI-PMH Data Provider" — so the
-    CONTRACT SHAPE is DSpace's, and no DSpace spec is saved under EPFL's slug. The endpoint, the
-    identifiers (oai:infoscience.epfl.ch:20.500.14299/…) and the adminEmail
-    (infoscienceAdmin@epfl.ch) are EPFL's.
+    infoscience.epfl.ch is EPFL's own host, not an account on a vendor's platform. The software is DSpace-CRIS
+    — the OAI provider identifies itself as "DSpace-CRIS OAI-PMH Data Provider" — so the CONTRACT SHAPE
+    is DSpace's, and no DSpace spec is saved under EPFL's slug. The endpoint, the identifiers (oai:infoscience.epfl.ch:20.500.14299/…)
+    and the adminEmail (infoscienceAdmin@epfl.ch) are EPFL's.
   description: >-
-    Infoscience is EPFL's institutional repository and CRIS, self-hosted on EPFL infrastructure and
-    running DSpace-CRIS. It exposes a HAL/HATEOAS REST API rooted at /server/api with 40+ link
-    relations, and an OAI-PMH 2.0 provider with a single context, openaire4, declaring compliance
-    with the OpenAIRE Guidelines for Literature Repositories v4.0. Records carry DataCite Kernel 4
-    metadata and ORCID name identifiers. Harvesting is supported from earliestDatestamp
-    2004-08-31 at second granularity. Anonymous reads of /server/api/core/items return 401, so
-    OAI-PMH is the usable public harvesting surface.
+    Infoscience is EPFL's institutional repository and CRIS, self-hosted on EPFL infrastructure and running
+    DSpace-CRIS. It exposes a HAL/HATEOAS REST API rooted at /server/api with 40+ link relations, and
+    an OAI-PMH 2.0 provider with a single context, openaire4, declaring compliance with the OpenAIRE Guidelines
+    for Literature Repositories v4.0. Records carry DataCite Kernel 4 metadata and ORCID name identifiers.
+    Harvesting is supported from earliestDatestamp 2004-08-31 at second granularity. Anonymous reads of
+    /server/api/core/items return 401, so OAI-PMH is the usable public harvesting surface.
   humanURL: https://infoscience.epfl.ch/
   baseURL: https://infoscience.epfl.ch/server/api
   tags:
@@ -224,45 +221,17 @@ apis:
     url: https://www.epfl.ch/campus/library/services-researchers/infoscience-en/
   - type: Conformance
     url: conformance/epfl-conformance.yml
-- aid: epfl:getprime
-  name: EPFL GETprime qPCR Primer API
-  x-operator: institution
-  x-operator-basis: >-
-    getprime.epfl.ch is under EPFL's own registrable domain and is run by the EPFL Gene Expression
-    Core Facility.
-  description: >-
-    GETprime is a public, unauthenticated HTTP service from EPFL's Gene Expression Core Facility
-    that returns ranked, validated qPCR primer pairs for a gene identifier, organism and Ensembl
-    release. It is documented by EPFL at /api_documentation and was verified live on 2026-08-19 with
-    a successful POST. Recorded here because it is the kind of surface this catalog usually misses:
-    a real, institution-operated research API that lives outside the news/events/repository estate.
-    One correction to the published documentation — the documented JSON request body returns
-    HTTP 500 against the live service; application/x-www-form-urlencoded succeeds.
-  humanURL: https://getprime.epfl.ch/
-  baseURL: https://getprime.epfl.ch/
-  tags:
-  - Research
-  - Bioinformatics
-  - Genomics
-  properties:
-  - type: Documentation
-    url: https://getprime.epfl.ch/api_documentation
-  - type: OpenAPI
-    url: openapi/epfl-getprime-api-openapi.yml
-  - type: Website
-    url: https://www.epfl.ch/research/facilities/gene-expression-core-facility/
 - aid: epfl:graphsearch
   name: EPFL Graph Search
   x-operator: institution
   x-operator-basis: graphsearch.epfl.ch is under EPFL's own registrable domain.
   description: >-
-    EPFL Graph Search is an EPFL-built knowledge-graph search over EPFL concepts, people, units and
-    publications. It has a live HTTP API router — every /api/* path returns a JSON
-    {"message":"Route not found ..."} rather than an HTML page — but EPFL publishes no route
-    documentation, no schema and no OpenAPI, and the site itself sits behind a Cloudflare bot
-    challenge that returns 403 to a browser User-Agent. Recorded as a real institution-operated
-    surface with NO usable public contract; no OpenAPI is derived for it because there is nothing
-    verifiable to derive one from.
+    EPFL Graph Search is an EPFL-built knowledge-graph search over EPFL concepts, people, units and publications.
+    It has a live HTTP API router — every /api/* path returns a JSON {"message":"Route not found ..."}
+    rather than an HTML page — but EPFL publishes no route documentation, no schema and no OpenAPI, and
+    the site itself sits behind a Cloudflare bot challenge that returns 403 to a browser User-Agent. Recorded
+    as a real institution-operated surface with NO usable public contract; no OpenAPI is derived for it
+    because there is nothing verifiable to derive one from.
   humanURL: https://graphsearch.epfl.ch/
   tags:
   - Search
@@ -276,10 +245,10 @@ apis:
   x-operator: institution
   x-operator-basis: go.epfl.ch is under EPFL's own registrable domain and is run by EPFL-SI.
   description: >-
-    EPFL's institutional URL shortener publishes an API page describing token-authenticated link
-    creation. Access is gated to EPFL community members holding an institutional token, so it is a
-    real institution-operated surface that is not consumable by an outside developer. Recorded with
-    its gate stated rather than counted as an open API.
+    EPFL's institutional URL shortener publishes an API page describing token-authenticated link creation.
+    Access is gated to EPFL community members holding an institutional token, so it is a real institution-operated
+    surface that is not consumable by an outside developer. Recorded with its gate stated rather than
+    counted as an open API.
   humanURL: https://go.epfl.ch/api
   tags:
   - URL Shortener
@@ -292,20 +261,19 @@ apis:
   name: EPFL SAML Identity Federation Entities
   x-operator: institution
   x-operator-basis: >-
-    The entityIDs, the Shibboleth SP deployments and the attribute-release requests are EPFL's own,
-    published under epfl.ch hostnames. The aggregate they are published IN is operated by SWITCH,
-    which is why the registry URL below is a property and not this entry's baseURL.
+    The entityIDs, the Shibboleth SP deployments and the attribute-release requests are EPFL's own, published
+    under epfl.ch hostnames. The aggregate they are published IN is operated by SWITCH, which is why the
+    registry URL below is a property and not this entry's baseURL.
   description: >-
-    EPFL is a registered member of SWITCHaai, the Swiss academic identity federation, which is
-    exported to eduGAIN. Seventeen entityIDs containing "epfl" appear in the federation aggregate.
-    EPFL's identity provider entity, https://idp.epfl.ch/idp/shibboleth, carries the REFEDS Research
-    & Scholarship entity category and REFEDS Sirtfi. EPFL-operated Shibboleth service providers are
-    registered at https://companion.epfl.ch/shibboleth (9 requested attributes; host resolves and
-    returns 200) and https://tequila.epfl.ch/shibboleth (16 requested attributes, including
-    swissEduPersonMatriculationNumber and swissEduPersonStudyLevel) — but note that tequila.epfl.ch
-    NO LONGER RESOLVES in public DNS as of 2026-08-19, so that registration is stale metadata rather
-    than a reachable service. This is machine-readable institutional infrastructure that is almost
-    never catalogued, and the entities are genuinely EPFL's.
+    EPFL is a registered member of SWITCHaai, the Swiss academic identity federation, which is exported
+    to eduGAIN. Seventeen entityIDs containing "epfl" appear in the federation aggregate. EPFL's identity
+    provider entity, https://idp.epfl.ch/idp/shibboleth, carries the REFEDS Research & Scholarship entity
+    category and REFEDS Sirtfi. EPFL-operated Shibboleth service providers are registered at https://companion.epfl.ch/shibboleth
+    (9 requested attributes; host resolves and returns 200) and https://tequila.epfl.ch/shibboleth (16
+    requested attributes, including swissEduPersonMatriculationNumber and swissEduPersonStudyLevel) —
+    but note that tequila.epfl.ch NO LONGER RESOLVES in public DNS as of 2026-08-19, so that registration
+    is stale metadata rather than a reachable service. This is machine-readable institutional infrastructure
+    that is almost never catalogued, and the entities are genuinely EPFL's.
   humanURL: https://companion.epfl.ch/
   tags:
   - Identity Federation
@@ -321,15 +289,15 @@ apis:
   name: EPFL Identity Provider (SWITCH edu-ID, tenant)
   x-operator: tenant
   x-operator-basis: >-
-    The entityID https://idp.epfl.ch/idp/shibboleth is EPFL's namespace, but the SingleSignOnService
-    endpoints in the federation metadata point at https://epfl.login.eduid.ch/idp/profile/SAML2/…,
-    an EPFL-specific hostname on SWITCH's hosted edu-ID platform. EPFL's users and EPFL's attribute
-    policy; SWITCH's running IdP. No SWITCH contract is saved under EPFL's slug.
+    The entityID https://idp.epfl.ch/idp/shibboleth is EPFL's namespace, but the SingleSignOnService endpoints
+    in the federation metadata point at https://epfl.login.eduid.ch/idp/profile/SAML2/…, an EPFL-specific
+    hostname on SWITCH's hosted edu-ID platform. EPFL's users and EPFL's attribute policy; SWITCH's running
+    IdP. No SWITCH contract is saved under EPFL's slug.
   description: >-
-    EPFL's SAML identity provider is delivered by SWITCH edu-ID as a hosted, EPFL-branded IdP. The
-    relationship is a real institutional fact — EPFL authenticates its community through it and its
-    entity is federated into eduGAIN — but the engineering belongs to SWITCH, so it is recorded as a
-    tenant relationship rather than credited to EPFL.
+    EPFL's SAML identity provider is delivered by SWITCH edu-ID as a hosted, EPFL-branded IdP. The relationship
+    is a real institutional fact — EPFL authenticates its community through it and its entity is federated
+    into eduGAIN — but the engineering belongs to SWITCH, so it is recorded as a tenant relationship rather
+    than credited to EPFL.
   humanURL: https://www.switch.ch/edu-id/
   tags:
   - Identity Federation
@@ -342,17 +310,16 @@ apis:
   name: EPFL Library Discovery on swisscovery (Ex Libris, tenant)
   x-operator: tenant
   x-operator-basis: >-
-    epfl.swisscovery.ch CNAMEs to slsp-epfl.primo.exlibrisgroup.com and then to
-    eu03.primo.exlibrisgroup.com. The federation metadata additionally registers
-    https://slsp-epfl.alma.exlibrisgroup.com/mng/login and
-    https://slsp-epfl.primo.exlibrisgroup.com/mng/login as EPFL-scoped entities. EPFL-specific
-    account on a shared vendor platform run by the SLSP consortium — tenant, not institution.
+    epfl.swisscovery.ch CNAMEs to slsp-epfl.primo.exlibrisgroup.com and then to eu03.primo.exlibrisgroup.com.
+    The federation metadata additionally registers https://slsp-epfl.alma.exlibrisgroup.com/mng/login
+    and https://slsp-epfl.primo.exlibrisgroup.com/mng/login as EPFL-scoped entities. EPFL-specific account
+    on a shared vendor platform run by the SLSP consortium — tenant, not institution.
   description: >-
-    EPFL's library discovery and resolution run on Ex Libris Primo VE with Alma behind it, delivered
-    through SLSP (Swiss Library Service Platform). EPFL's holdings, EPFL's patrons, EPFL's branded
-    entry point — Ex Libris's contract. No Ex Libris specification is saved under EPFL's slug; the
-    relationship is recorded so the catalog knows EPFL operates a library discovery layer without
-    crediting EPFL for someone else's API.
+    EPFL's library discovery and resolution run on Ex Libris Primo VE with Alma behind it, delivered through
+    SLSP (Swiss Library Service Platform). EPFL's holdings, EPFL's patrons, EPFL's branded entry point
+    — Ex Libris's contract. No Ex Libris specification is saved under EPFL's slug; the relationship is
+    recorded so the catalog knows EPFL operates a library discovery layer without crediting EPFL for someone
+    else's API.
   humanURL: https://epfl.swisscovery.ch/
   tags:
   - Library
@@ -362,6 +329,20 @@ apis:
   properties:
   - type: LibraryCatalog
     url: https://epfl.swisscovery.ch/
+- aid: epfl:epfl-primers-api
+  name: EPFL Primers API
+  description: The Primers API from EPFL — 1 operation(s) for primers.
+  humanURL: https://actu.epfl.ch/
+  baseURL: https://actu.epfl.ch/api/v1/
+  tags:
+  - Primers
+  properties:
+  - type: OpenAPI
+    url: openapi/epfl-primers-api-openapi.yml
+  - type: Documentation
+    url: https://getprime.epfl.ch/api_documentation
+  - type: Website
+    url: https://www.epfl.ch/research/facilities/gene-expression-core-facility/
 common:
   - type: Website
     url: https://www.epfl.ch
