@@ -1,0 +1,163 @@
+generated: '2026-08-19'
+method: probed
+source: >-
+  Live probes on 2026-08-19 of actu.epfl.ch, memento.epfl.ch, infoscience.epfl.ch,
+  getprime.epfl.ch and www.epfl.ch, plus the SWITCHaai federation metadata aggregate
+  at https://metadata.aai.switch.ch/metadata.switchaai.xml (21.3 MB, 1,960 entities).
+note: >-
+  EPFL is scored under the Kin Score `education` regime. This file records only conformances
+  that were observed in a machine-readable artifact or a live response, with the exact location
+  of the evidence. Reward-only: a standard EPFL does not implement is recorded as conforms:false
+  with the negative probe that established it, and is not held against the institution beyond
+  the absence of the reward.
+operator_note: >-
+  Every conformance below is EPFL-operated. The OAI-PMH provider, the DataCite and ORCID
+  metadata, and the SAML entities all sit under epfl.ch or carry an epfl.ch entityID. The
+  repository software is DSpace-CRIS and the hosted IdP endpoint is SWITCH edu-ID, so the
+  ENGINEERING is not all EPFL's — but the endpoints, the identifiers and the registrations are.
+standards:
+- id: oai-pmh
+  regime: education
+  conforms: true
+  operator: institution
+  evidence: >-
+    https://infoscience.epfl.ch/server/oai/openaire4?verb=Identify returns HTTP 200
+    text/xml with protocolVersion 2.0, repositoryName "Infoscience", adminEmail
+    infoscienceAdmin@epfl.ch, repositoryIdentifier infoscience.epfl.ch, earliestDatestamp
+    2004-08-31T00:00:00Z and granularity YYYY-MM-DDThh:mm:ssZ. ListMetadataFormats returns
+    marcxml, oai_dc and oai_openaire; ListRecords returns records. The provider advertises
+    a single context, openaire4, declaring compliance with the OpenAIRE Guidelines for
+    Literature Repositories v4.0.
+- id: datacite
+  regime: education
+  conforms: true
+  operator: institution
+  evidence: >-
+    OAI-PMH ListRecords with metadataPrefix=oai_openaire on
+    https://infoscience.epfl.ch/server/oai/openaire4 returns records bound to
+    xmlns:datacite="http://datacite.org/schema/kernel-4" and populated with
+    datacite:creators, datacite:nameIdentifier, datacite:titles, datacite:identifier,
+    datacite:relatedIdentifiers, datacite:rights and datacite:subjects. DOIs resolve, e.g.
+    doi.org/10.48550/arXiv.2407.19971.
+- id: orcid
+  regime: education
+  conforms: true
+  operator: institution
+  evidence: >-
+    The same oai_openaire records carry datacite:nameIdentifier
+    nameIdentifierScheme="ORCID" with https://orcid.org/ values — 34 occurrences in a single
+    ListRecords page fetched 2026-08-19. Scopus Author ID and RID appear alongside it.
+- id: saml
+  regime: education
+  conforms: true
+  operator: institution
+  evidence: >-
+    17 entityIDs containing "epfl" are registered in the SWITCHaai aggregate. EPFL's own
+    identity provider is entityID https://idp.epfl.ch/idp/shibboleth, carrying an
+    IDPSSODescriptor and an AttributeAuthorityDescriptor with
+    protocolSupportEnumeration urn:oasis:names:tc:SAML:2.0:protocol and OrganizationName
+    epfl.ch. EPFL-operated service providers include https://tequila.epfl.ch/shibboleth
+    (SAML 2.0 + SAML 1.1) and https://companion.epfl.ch/shibboleth.
+- id: shibboleth
+  regime: education
+  conforms: true
+  operator: institution
+  evidence: >-
+    EPFL's service providers run Shibboleth SP: assertion consumer services are published at
+    https://companion.epfl.ch/Shibboleth.sso/SAML2/POST, .../Artifact, .../ECP (host resolves,
+    HTTP 200) and https://tequila.epfl.ch/Shibboleth.sso/SAML2/POST, .../POST-SimpleSign,
+    .../Artifact (registration present, but tequila.epfl.ch does not resolve in public DNS as of
+    2026-08-19 — stale federation metadata). The IdP
+    entity is additionally tagged with the REFEDS Research & Scholarship entity category
+    (http://refeds.org/category/research-and-scholarship) and REFEDS Sirtfi
+    (https://refeds.org/sirtfi).
+- id: crossref
+  regime: education
+  conforms: false
+  operator: institution
+  evidence: >-
+    Negative probe. No Crossref namespace, schema or identifier appears anywhere in an
+    oai_openaire ListRecords page from Infoscience (0 case-insensitive matches for
+    "crossref" in 896 KB of records). Infoscience mints and exposes DataCite DOIs, not
+    Crossref ones.
+- id: scim
+  regime: education
+  conforms: false
+  operator: institution
+  evidence: >-
+    Negative probe. No /scim or /scim/v2 surface is published on any EPFL host reached, and
+    no SCIM schema appears in any EPFL contract held here. EPFL's provisioning and directory
+    integration is not publicly exposed.
+- id: lti
+  regime: education
+  conforms: false
+  operator: institution
+  evidence: >-
+    Negative probe. No LTI tool or platform registration, and no
+    /.well-known/lti-configuration, was found on an EPFL host. EPFL's Moodle estate is not
+    publicly documented as an LTI surface.
+- id: oneroster
+  regime: education
+  conforms: false
+  operator: institution
+  evidence: Negative probe. No OneRoster endpoint or artifact found on any EPFL host.
+- id: ed-fi
+  regime: education
+  conforms: false
+  operator: institution
+  evidence: >-
+    Negative probe. Ed-Fi is a US K-12 data standard; no Ed-Fi ODS surface exists at EPFL and
+    none would be expected of a Swiss federal institute of technology.
+- id: caliper
+  regime: education
+  conforms: false
+  operator: institution
+  evidence: Negative probe. No Caliper Analytics event store or endpoint found on any EPFL host.
+- id: qti
+  regime: education
+  conforms: false
+  operator: institution
+  evidence: Negative probe. No QTI assessment package or endpoint published on an EPFL host.
+- id: openapi-3.0
+  regime: general
+  conforms: partial
+  operator: institution
+  evidence: >-
+    EPFL itself publishes NO OpenAPI. actu.epfl.ch/api-docs/ and memento.epfl.ch/api/docs/
+    serve a Django REST Framework CoreAPI schema rendered by coreapi-0.1.1.js, and
+    ?format=openapi returns HTTP 404 on both hosts, as do /api/v1/swagger.json and
+    /api/v1/schema/. Every OpenAPI in openapi/ is ours, marked method:derived. Partial
+    because a machine-readable description exists and is public, just not in OpenAPI.
+- id: rfc9116-security-txt
+  regime: general
+  conforms: partial
+  operator: institution
+  evidence: >-
+    https://www.epfl.ch/.well-known/security.txt returns HTTP 200 with a PGP-signed document,
+    Contact mailto:security@epfl.ch, Encryption, Preferred-Languages and a Canonical field.
+    Partial because the Expires field reads 2026-01-02T23:59:59.999Z — the document was
+    expired at probe time on 2026-08-19.
+- id: rfc9457-problem-details
+  regime: general
+  conforms: false
+  operator: institution
+  evidence: >-
+    Errors on both public APIs are the Django REST Framework envelope with content-type
+    application/json, e.g. {"detail":"No Translation matches the given query."} on
+    https://actu.epfl.ch/api/v1/news/99999999/ (404) and
+    {"detail":"Method \"POST\" not allowed."} (405). No application/problem+json is served.
+- id: rfc8594-sunset-header
+  regime: general
+  conforms: false
+  operator: institution
+  evidence: >-
+    No Sunset or Deprecation response header on any probed EPFL API response, and no published
+    deprecation policy was found for the Actu or Memento APIs.
+- id: rfc8615-well-known
+  regime: general
+  conforms: partial
+  operator: institution
+  evidence: >-
+    /.well-known/security.txt and /.well-known/gpg_key.txt are served on www.epfl.ch;
+    /llms.txt returns HTTP 404. No OIDC discovery document is published on an EPFL host —
+    federated login is SAML, not OIDC.

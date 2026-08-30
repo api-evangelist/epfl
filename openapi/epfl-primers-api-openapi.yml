@@ -1,0 +1,160 @@
+openapi: 3.2.0
+info:
+  title: EPFL GETprime Primers API
+  description: GETprime is an EPFL-operated public web service from the Gene Expression Core Facility (GECF) that returns validated, genome-wide qPCR primer pairs. It is one of the few institution-operated, publicly documented and unauthenticated APIs EPFL runs outside its news and events estate. EPFL publishes no OpenAPI for it; this document is derived from the published API documentation at https://getprime.epfl.ch/api_documentation and from a live, successful POST executed on 2026-08-19. Note that the documentation shows a JSON request body, but only application/x-www-form-urlencoded was observed to succeed against the live service; a JSON body returned HTTP 500.
+  version: 1.0.0
+  contact:
+    name: EPFL Gene Expression Core Facility (GECF)
+    url: https://www.epfl.ch/research/facilities/gene-expression-core-facility/
+servers:
+- url: https://getprime.epfl.ch
+  description: EPFL GETprime, canonical host
+security: []
+tags:
+- name: Primers
+paths:
+  /primers/search:
+    post:
+      tags:
+      - Primers
+      operationId: searchPrimers
+      summary: Search validated qPCR primer pairs by gene identifier
+      description: Returns the ranked primer pairs GETprime holds for the supplied gene identifier(s), for one organism and one Ensembl release. Verified live on 2026-08-19 with ensembl_version=81, identifiers=mdm1, organism_id=5, limit=2, format=json -> HTTP 200, JSON array.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - identifiers
+              - organism_id
+              - ensembl_version
+              properties:
+                identifiers:
+                  type: string
+                  description: Gene identifier or name, e.g. mdm1.
+                organism_id:
+                  type: integer
+                  description: GETprime organism id, e.g. 5 for Homo sapiens.
+                ensembl_version:
+                  type: integer
+                  description: Ensembl release the primers were designed against, e.g. 81.
+                limit:
+                  type: integer
+                  description: Maximum number of primer pairs to return. The documentation states a ceiling of 1000.
+                  maximum: 1000
+                format:
+                  type: string
+                  description: Response format.
+                  enum:
+                  - json
+      responses:
+        '200':
+          description: Ranked primer pairs.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Primer'
+        '500':
+          description: Internal server error. Observed when the request body is sent as application/json rather than form-encoded.
+components:
+  schemas:
+    Primer:
+      type: object
+      description: One primer pair record, field set observed in the live 2026-08-19 response.
+      properties:
+        id:
+          type: integer
+        gene_id:
+          type: string
+        gene_name:
+          type: string
+        transcript_id:
+          type: string
+        transcript_ids:
+          type: string
+        nber_transcripts:
+          type: integer
+        nber_known_transcripts:
+          type: integer
+        amplicon_length:
+          type: integer
+        warning_ids:
+          type: string
+        chr:
+          type: string
+        fwd_start:
+          type: integer
+        fwd_stop:
+          type: integer
+        fwd_strand:
+          type: boolean
+        fwd_type_def_ids:
+          type: string
+        fwd_seq:
+          type: string
+        fwd_tm:
+          type: integer
+        rev_start:
+          type: integer
+        rev_stop:
+          type: integer
+        rev_strand:
+          type: boolean
+        rev_type_def_ids:
+          type: string
+        rev_seq:
+          type: string
+        rev_tm:
+          type: integer
+        organism_id:
+          type: integer
+        transcript_specific:
+          type: integer
+        rank:
+          type: integer
+        fwd_nber_snps:
+          type: integer
+        rev_nber_snps:
+          type: integer
+        downstream_nber_snps:
+          type: integer
+        upstream_nber_snps:
+          type: integer
+        fwd_nber_snps_nr:
+          type: integer
+        rev_nber_snps_nr:
+          type: integer
+        upstream_nber_snps_nr:
+          type: integer
+        downstream_nber_snps_nr:
+          type: integer
+        mapping:
+          type:
+          - string
+          - 'null'
+        fwd_exon_regions:
+          type: string
+        rev_exon_regions:
+          type: string
+        protein_coding:
+          type: boolean
+        nber_snps:
+          type:
+          - string
+          - 'null'
+        organism_name:
+          type: string
+        ensembl_version:
+          type: integer
+        novel:
+          type: boolean
+x-operator: institution
+x-provenance:
+  generated: '2026-08-19'
+  method: derived
+  source: https://getprime.epfl.ch/api_documentation (published EPFL documentation) + live POST to https://getprime.epfl.ch/primers/search on 2026-08-19 returning HTTP 200
+  operator_basis: getprime.epfl.ch is under EPFL's own registrable domain epfl.ch and is run by an EPFL core facility
