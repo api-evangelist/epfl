@@ -265,6 +265,10 @@ apis:
     counted as an open API.
   humanURL: https://go.epfl.ch/api
   tags:
+  - URL Shorteners
+  - Campus
+  - Gated
+  tags_raw:
   - URL Shortener
   - Campus
   - Gated
@@ -316,6 +320,10 @@ apis:
   tags:
   - Identity Federation
   - SAML
+  - Tenants
+  tags_raw:
+  - Identity Federation
+  - SAML
   - Tenant
   properties:
   - type: IdentityFederation
@@ -336,6 +344,11 @@ apis:
     else's API.
   humanURL: https://epfl.swisscovery.ch/
   tags:
+  - Library
+  - Discovery
+  - Ex Libris
+  - Tenants
+  tags_raw:
   - Library
   - Discovery
   - Ex Libris
