@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "EPFL Actu News Categories Vulgarizations API",
+    "name": "EPFL Vulgarizations API",
     "version": "v1"
   },
   "items": [
@@ -18,7 +18,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://actu.epfl.ch/api/v1/vulgarizations/"
+            "url": "https://memento.epfl.ch/api/v1/vulgarizations/"
           },
           "docs": "List all Vulgarization objects."
         },
@@ -29,7 +29,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://actu.epfl.ch/api/v1/vulgarizations/:id/",
+            "url": "https://memento.epfl.ch/api/v1/vulgarizations/:id/",
             "params": [
               {
                 "name": "id",

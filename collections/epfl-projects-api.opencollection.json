@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "EPFL Actu News Categories Projects API",
+    "name": "EPFL Projects API",
     "version": "v1"
   },
   "items": [

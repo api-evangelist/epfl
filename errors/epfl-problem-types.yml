@@ -1,0 +1,63 @@
+generated: '2026-08-19'
+method: probed
+source: >-
+  Live probes of https://actu.epfl.ch/api/v1/ and https://memento.epfl.ch/api/v1/ on 2026-08-19
+docs: https://actu.epfl.ch/api-docs/
+format: django-rest-framework-detail
+rfc9457: false
+x-operator: institution
+note: >-
+  Both public EPFL APIs are Django REST Framework applications and return the framework's
+  default error envelope — a single `detail` string, content-type application/json. There is
+  no problem type registry, no error code, no correlation id and no documentation of error
+  behaviour on either api-docs page; everything below was established by probing. One quirk is
+  worth knowing before you write a client: an invalid `limit` does NOT error. limit=notanumber
+  returns HTTP 200 and silently falls back to the default page size of 10.
+envelope:
+  content_type: application/json
+  schema:
+    type: object
+    properties:
+      detail:
+        type: string
+  example:
+    detail: No Translation matches the given query.
+status_codes:
+- status: 404
+  meaning: >-
+    Object not found. Both hosts answer with {"detail":"No Translation matches the given
+    query."} — the message names the internal Translation model rather than the resource the
+    caller asked for, so it is not a usable disambiguator.
+  retryable: false
+  evidence: >-
+    https://actu.epfl.ch/api/v1/news/99999999/ -> 404 application/json;
+    https://memento.epfl.ch/api/v1/events/99999999/ -> 404 application/json
+- status: 405
+  meaning: >-
+    Method not allowed. The APIs are read-only; the Allow header on a collection is
+    "GET, HEAD, OPTIONS".
+  retryable: false
+  evidence: 'POST https://actu.epfl.ch/api/v1/news/ -> 405 {"detail":"Method \"POST\" not allowed."}'
+- status: 404
+  meaning: >-
+    Wrong host for the resource. The two APIs share a resource vocabulary but not a resource
+    set, and asking the wrong host is indistinguishable from asking for a missing object.
+  retryable: false
+  evidence: >-
+    /events/, /mementos/, /registrations/, /domains/, /spoken_languages/ and /vulgarizations/
+    return 404 on actu.epfl.ch and 200 on memento.epfl.ch; /news/, /channels/, /projects/,
+    /themes/ and /publics/ return 404 on memento.epfl.ch and 200 on actu.epfl.ch. Only
+    /categories/ and /faculties/ answer 200 on both.
+non_errors:
+- condition: invalid pagination parameter
+  behaviour: >-
+    HTTP 200 with the default page. limit=notanumber returned 200 and a 10-item page rather
+    than a 400.
+  evidence: 'https://actu.epfl.ch/api/v1/news/?limit=notanumber -> 200'
+introspection:
+  options_supported: true
+  detail: >-
+    OPTIONS on a collection returns 200 with the DRF metadata document — name, description,
+    renders and parses — which is the closest thing either API has to a machine-readable
+    error/response contract.
+  evidence: 'OPTIONS https://actu.epfl.ch/api/v1/news/ -> 200 {"name":"News List",...}'

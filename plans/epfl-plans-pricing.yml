@@ -1,3 +1,11 @@
+generated: '2026-08-19'
+method: generated
+source: >-
+  No pricing page or plan document exists on any EPFL host. This profile is generated from the
+  institution's own posture — public, unauthenticated, free endpoints on actu.epfl.ch,
+  memento.epfl.ch, infoscience.epfl.ch and getprime.epfl.ch, and affiliation-gated access on
+  go.epfl.ch — not from a published EPFL price list.
+x-operator: institution
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans

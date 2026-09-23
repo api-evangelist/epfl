@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "EPFL Actu News Categories Events API",
+    "name": "EPFL Events API",
     "version": "v1"
   },
   "items": [
@@ -18,7 +18,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://actu.epfl.ch/api/v1/events/",
+            "url": "https://memento.epfl.ch/api/v1/events/",
             "params": [
               {
                 "name": "limit",
@@ -175,7 +175,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://actu.epfl.ch/api/v1/events/:event__pk/",
+            "url": "https://memento.epfl.ch/api/v1/events/:event__pk/",
             "params": [
               {
                 "name": "event__pk",

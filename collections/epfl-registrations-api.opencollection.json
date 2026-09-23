@@ -1,7 +1,7 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "EPFL Actu News Categories Registrations API",
+    "name": "EPFL Registrations API",
     "version": "v1"
   },
   "items": [
@@ -18,7 +18,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://actu.epfl.ch/api/v1/registrations/"
+            "url": "https://memento.epfl.ch/api/v1/registrations/"
           },
           "docs": "List all Registration objects."
         },
@@ -29,7 +29,7 @@
           },
           "http": {
             "method": "GET",
-            "url": "https://actu.epfl.ch/api/v1/registrations/:id/",
+            "url": "https://memento.epfl.ch/api/v1/registrations/:id/",
             "params": [
               {
                 "name": "id",

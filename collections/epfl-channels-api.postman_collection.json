@@ -400,10 +400,10 @@
   ],
   "info": {
     "_postman_id": "bac6fc1f-8ddd-40f6-8b20-41a45bba3e56",
-    "name": "EPFL Actu News Categories Channels API",
+    "name": "EPFL Channels API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Public REST API serving EPFL news (\"Actu\") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.\n\nContact Support:\n Name: EPFL Actu API",
+      "content": "Public REST API serving EPFL news (\"Actu\") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.\n\nContact Support:\n Name: EPFL Channels API",
       "type": "text/plain"
     }
   }

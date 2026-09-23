@@ -14,17 +14,17 @@ info:
     name: EPFL Memento API
     url: https://memento.epfl.ch/api/docs/
 servers:
-  - url: https://memento.epfl.ch/api/v1
+- url: https://memento.epfl.ch/api/v1
 paths:
   /categories/:
     get:
       operationId: listCategories
       summary: List all Category objects.
       parameters:
-        - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Offset'
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A paginated list of categories.
@@ -37,9 +37,9 @@ paths:
       operationId: readCategory
       summary: Return the details about the given Category id.
       parameters:
-        - $ref: '#/components/parameters/IntId'
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/IntId'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A single category.
@@ -52,10 +52,10 @@ paths:
       operationId: listDomains
       summary: List all Domain objects.
       parameters:
-        - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Offset'
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A paginated list of domains.
@@ -68,9 +68,9 @@ paths:
       operationId: readDomain
       summary: Return the details about the given Domain id.
       parameters:
-        - $ref: '#/components/parameters/IntId'
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/IntId'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A single domain.
@@ -83,112 +83,112 @@ paths:
       operationId: listEvents
       summary: List all Event objects with filtering.
       parameters:
-        - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Offset'
-        - name: title
-          in: query
-          description: Filters the events containing the given text in the title.
-          schema:
-            type: string
-        - name: description
-          in: query
-          description: Filters the events containing the given text in the description.
-          schema:
-            type: string
-        - name: start_date
-          in: query
-          description: Filters the events which start at the given start_date.
-          schema:
-            type: string
-            format: date
-        - name: end_date
-          in: query
-          description: Filters the events which finish at the given end_date.
-          schema:
-            type: string
-            format: date
-        - name: start_time
-          in: query
-          description: Filters the events which start at the given start_time.
-          schema:
-            type: string
-        - name: end_time
-          in: query
-          description: Filters the events which finish at the given end_time.
-          schema:
-            type: string
-        - name: start_year
-          in: query
-          description: Filters the events which start at the given start_year.
-          schema:
-            type: number
-        - name: place_and_room
-          in: query
-          description: Filters the events containing the given text in the place and room.
-          schema:
-            type: string
-        - name: spoken_languages
-          in: query
-          description: 'Spoken Language ID. Return only the events with the given spoken language.'
-          schema:
-            type: string
-        - name: memento
-          in: query
-          description: 'Memento ID. Return only the events in the given memento.'
-          schema:
-            type: number
-        - name: category
-          in: query
-          description: 'Category ID. Return only the events linked to the given category.'
-          schema:
-            type: string
-        - name: theme
-          in: query
-          description: 'Theme name. Return only the events linked to the given theme.'
-          schema:
-            type: string
-        - name: keywords
-          in: query
-          description: 'Keywords name. Return only the events linked to the given keywords.'
-          schema:
-            type: string
-        - name: vulgarization
-          in: query
-          description: 'Vulgarization ID. Return only the events with the given vulgarization.'
-          schema:
-            type: string
-        - name: registration
-          in: query
-          description: 'Registration ID. Return only the events linked to the given registration.'
-          schema:
-            type: string
-        - name: domains
-          in: query
-          description: 'Domain ID. Return only the events linked to the given domain.'
-          schema:
-            type: string
-        - name: academic_calendar_category
-          in: query
-          description: 'Academic Calendar Category ID. Return only matching events.'
-          schema:
-            type: number
-        - name: speaker
-          in: query
-          description: Filters the events containing the given text in the speaker.
-          schema:
-            type: string
-        - name: organizer
-          in: query
-          description: Filters the events containing the given text in the organizer.
-          schema:
-            type: string
-        - name: contact
-          in: query
-          description: Filters the events containing the given text in the contact.
-          schema:
-            type: string
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - name: title
+        in: query
+        description: Filters the events containing the given text in the title.
+        schema:
+          type: string
+      - name: description
+        in: query
+        description: Filters the events containing the given text in the description.
+        schema:
+          type: string
+      - name: start_date
+        in: query
+        description: Filters the events which start at the given start_date.
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        description: Filters the events which finish at the given end_date.
+        schema:
+          type: string
+          format: date
+      - name: start_time
+        in: query
+        description: Filters the events which start at the given start_time.
+        schema:
+          type: string
+      - name: end_time
+        in: query
+        description: Filters the events which finish at the given end_time.
+        schema:
+          type: string
+      - name: start_year
+        in: query
+        description: Filters the events which start at the given start_year.
+        schema:
+          type: number
+      - name: place_and_room
+        in: query
+        description: Filters the events containing the given text in the place and room.
+        schema:
+          type: string
+      - name: spoken_languages
+        in: query
+        description: 'Spoken Language ID. Return only the events with the given spoken language.'
+        schema:
+          type: string
+      - name: memento
+        in: query
+        description: 'Memento ID. Return only the events in the given memento.'
+        schema:
+          type: number
+      - name: category
+        in: query
+        description: 'Category ID. Return only the events linked to the given category.'
+        schema:
+          type: string
+      - name: theme
+        in: query
+        description: 'Theme name. Return only the events linked to the given theme.'
+        schema:
+          type: string
+      - name: keywords
+        in: query
+        description: 'Keywords name. Return only the events linked to the given keywords.'
+        schema:
+          type: string
+      - name: vulgarization
+        in: query
+        description: 'Vulgarization ID. Return only the events with the given vulgarization.'
+        schema:
+          type: string
+      - name: registration
+        in: query
+        description: 'Registration ID. Return only the events linked to the given registration.'
+        schema:
+          type: string
+      - name: domains
+        in: query
+        description: 'Domain ID. Return only the events linked to the given domain.'
+        schema:
+          type: string
+      - name: academic_calendar_category
+        in: query
+        description: 'Academic Calendar Category ID. Return only matching events.'
+        schema:
+          type: number
+      - name: speaker
+        in: query
+        description: Filters the events containing the given text in the speaker.
+        schema:
+          type: string
+      - name: organizer
+        in: query
+        description: Filters the events containing the given text in the organizer.
+        schema:
+          type: string
+      - name: contact
+        in: query
+        description: Filters the events containing the given text in the contact.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A paginated list of events.
@@ -201,14 +201,14 @@ paths:
       operationId: readEvent
       summary: Return the details about the given Event id.
       parameters:
-        - name: event__pk
-          in: path
-          required: true
-          description: A unique integer value identifying this event.
-          schema:
-            type: integer
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - name: event__pk
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: integer
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A single event.
@@ -221,10 +221,10 @@ paths:
       operationId: listFaculties
       summary: List all Faculty objects.
       parameters:
-        - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Offset'
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A paginated list of faculties.
@@ -237,9 +237,9 @@ paths:
       operationId: readFaculty
       summary: Return the details about the given Faculty id.
       parameters:
-        - $ref: '#/components/parameters/IntId'
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/IntId'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A single faculty.
@@ -252,10 +252,10 @@ paths:
       operationId: listMementos
       summary: List all Memento objects.
       parameters:
-        - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Offset'
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A paginated list of mementos.
@@ -268,9 +268,9 @@ paths:
       operationId: readMemento
       summary: Return the details about the given Memento id.
       parameters:
-        - $ref: '#/components/parameters/IntId'
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/IntId'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A single memento.
@@ -283,7 +283,7 @@ paths:
       operationId: listMementoEvents
       summary: List events for a memento.
       parameters:
-        - $ref: '#/components/parameters/IntId'
+      - $ref: '#/components/parameters/IntId'
       responses:
         '200':
           description: Events for the memento.
@@ -307,7 +307,7 @@ paths:
       operationId: readRegistration
       summary: Return the details about the given Registration id.
       parameters:
-        - $ref: '#/components/parameters/IntId'
+      - $ref: '#/components/parameters/IntId'
       responses:
         '200':
           description: A single registration.
@@ -320,10 +320,10 @@ paths:
       operationId: listSpokenLanguages
       summary: List all Spoken Language objects.
       parameters:
-        - $ref: '#/components/parameters/Limit'
-        - $ref: '#/components/parameters/Offset'
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A paginated list of spoken languages.
@@ -336,9 +336,9 @@ paths:
       operationId: readSpokenLanguage
       summary: Return the details about the given Spoken Language id.
       parameters:
-        - $ref: '#/components/parameters/IntId'
-        - $ref: '#/components/parameters/Search'
-        - $ref: '#/components/parameters/Ordering'
+      - $ref: '#/components/parameters/IntId'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Ordering'
       responses:
         '200':
           description: A single spoken language.
@@ -362,7 +362,7 @@ paths:
       operationId: readVulgarization
       summary: Return the details about the given Vulgarization id.
       parameters:
-        - $ref: '#/components/parameters/IntId'
+      - $ref: '#/components/parameters/IntId'
       responses:
         '200':
           description: A single vulgarization.
@@ -695,3 +695,11 @@ components:
       type: http
       scheme: basic
 security: []
+x-operator: institution
+x-provenance:
+  generated: '2026-06-03'
+  verified: '2026-08-19'
+  method: derived
+  source: Django REST Framework CoreAPI schema at https://memento.epfl.ch/api/docs/; every collection path re-probed against https://memento.epfl.ch/api/v1 on 2026-08-19 and all answer 200.
+  operator_basis: host under EPFL's own registrable domain epfl.ch
+  note: Pristine pre-refine source. This document has the CORRECT host. refine-openapis later merged tags across both EPFL specs and stamped every per-tag split with the first spec's server, which is how six memento-only resources came to claim actu.epfl.ch. Corrected in openapi/ on 2026-08-19.

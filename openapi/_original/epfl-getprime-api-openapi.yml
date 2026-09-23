@@ -1,7 +1,7 @@
-openapi: 3.2.0
+openapi: 3.0.3
 info:
-  title: EPFL GETprime Primers API
-  description: GETprime is an EPFL-operated public web service from the Gene Expression Core Facility (GECF) that returns validated, genome-wide qPCR primer pairs.
+  title: EPFL GETprime API
+  description: GETprime is an EPFL-operated public web service from the Gene Expression Core Facility (GECF) that returns validated, genome-wide qPCR primer pairs. It is one of the few institution-operated, publicly documented and unauthenticated APIs EPFL runs outside its news and events estate. EPFL publishes no OpenAPI for it; this document is derived from the published API documentation at https://getprime.epfl.ch/api_documentation and from a live, successful POST executed on 2026-08-19. Note that the documentation shows a JSON request body, but only application/x-www-form-urlencoded was observed to succeed against the live service; a JSON body returned HTTP 500.
   version: 1.0.0
   contact:
     name: EPFL Gene Expression Core Facility (GECF)
@@ -133,9 +133,8 @@ components:
         downstream_nber_snps_nr:
           type: integer
         mapping:
-          type:
-          - string
-          - 'null'
+          type: string
+          nullable: true
         fwd_exon_regions:
           type: string
         rev_exon_regions:
@@ -143,9 +142,8 @@ components:
         protein_coding:
           type: boolean
         nber_snps:
-          type:
-          - string
-          - 'null'
+          type: string
+          nullable: true
         organism_name:
           type: string
         ensembl_version:

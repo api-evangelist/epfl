@@ -1,13 +1,11 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: EPFL Actu News Categories Faculties API
-  description: Public REST API serving EPFL news ("Actu") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.
+  title: Epfl Faculties API
   version: v1
-  contact:
-    name: EPFL Actu API
-    url: https://actu.epfl.ch/api-docs/
+  description: 'Operations tagged Faculties across 2 of this provider''s published API definitions: epfl-actu.yaml, epfl-memento.yaml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://actu.epfl.ch/api/v1
+- url: https://memento.epfl.ch/api/v1
 security: []
 tags:
 - name: Faculties
@@ -15,7 +13,7 @@ paths:
   /faculties/:
     get:
       operationId: listFaculties
-      summary: List all Faculty objects.
+      summary: List all Faculty objects
       parameters:
       - $ref: '#/components/parameters/Limit'
       - $ref: '#/components/parameters/Offset'
@@ -29,10 +27,12 @@ paths:
                 $ref: '#/components/schemas/PaginatedFacultyList'
       tags:
       - Faculties
+    servers:
+    - url: https://actu.epfl.ch/api/v1
   /faculties/{id}/:
     get:
       operationId: readFaculty
-      summary: Return the details about the given Faculty id.
+      summary: Return the details about the given Faculty id
       parameters:
       - $ref: '#/components/parameters/IntId'
       - $ref: '#/components/parameters/Search'
@@ -45,33 +45,22 @@ paths:
                 $ref: '#/components/schemas/Faculty'
       tags:
       - Faculties
+    servers:
+    - url: https://actu.epfl.ch/api/v1
 components:
-  schemas:
-    Faculty:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    PaginatedFacultyList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          format: uri
-          nullable: true
-        previous:
-          type: string
-          format: uri
-          nullable: true
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Faculty'
   parameters:
+    Search:
+      name: search
+      in: query
+      description: A search term.
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
     IntId:
       name: id
       in: path
@@ -79,24 +68,45 @@ components:
       description: A unique integer value identifying this object.
       schema:
         type: integer
-    Search:
-      name: search
-      in: query
-      description: A search term.
-      schema:
-        type: string
     Limit:
       name: limit
       in: query
       description: Number of results to return per page.
       schema:
         type: integer
-    Offset:
-      name: offset
+    Ordering:
+      name: ordering
       in: query
-      description: The initial index from which to return the results.
+      description: Which field to use when ordering the results.
       schema:
-        type: integer
+        type: string
+  schemas:
+    PaginatedFacultyList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Faculty'
+    Faculty:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
   securitySchemes:
     tokenAuth:
       type: apiKey
@@ -106,3 +116,14 @@ components:
     basicAuth:
       type: http
       scheme: basic
+x-refined-from:
+- epfl-actu.yaml
+- epfl-memento.yaml
+x-operator: institution
+x-provenance:
+  generated: '2026-06-03'
+  verified: '2026-08-19'
+  method: derived
+  source: Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/; every collection path re-probed against https://actu.epfl.ch/api/v1 on 2026-08-19 and all answer 200.
+  operator_basis: host under EPFL's own registrable domain epfl.ch
+  note: Pristine pre-refine source. This document has the CORRECT host. refine-openapis later merged tags across both EPFL specs and stamped every per-tag split with the first spec's server, which is how six memento-only resources came to claim actu.epfl.ch. Corrected in openapi/ on 2026-08-19.

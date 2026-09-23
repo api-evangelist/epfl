@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: EPFL Actu News Categories Registrations API
-  description: Public REST API serving EPFL news ("Actu") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.
+  title: EPFL Memento Events Registrations API
+  description: Public REST API serving EPFL events ("Memento"), with resources for events, mementos, categories, domains, faculties, registrations, spoken languages and vulgarizations.
   version: v1
   contact:
-    name: EPFL Actu API
-    url: https://actu.epfl.ch/api-docs/
+    name: EPFL Memento API
+    url: https://memento.epfl.ch/api/docs/
 servers:
-- url: https://actu.epfl.ch/api/v1
+- url: https://memento.epfl.ch/api/v1
 security: []
 tags:
 - name: Registrations
@@ -15,7 +15,7 @@ paths:
   /registrations/:
     get:
       operationId: listRegistrations
-      summary: List all Registration objects.
+      summary: List all Registration objects
       responses:
         '200':
           description: A list of registrations.
@@ -28,7 +28,7 @@ paths:
   /registrations/{id}/:
     get:
       operationId: readRegistration
-      summary: Return the details about the given Registration id.
+      summary: Return the details about the given Registration id
       parameters:
       - $ref: '#/components/parameters/IntId'
       responses:
@@ -41,31 +41,6 @@ paths:
       tags:
       - Registrations
 components:
-  schemas:
-    Registration:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    PaginatedRegistrationList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type: string
-          format: uri
-          nullable: true
-        previous:
-          type: string
-          format: uri
-          nullable: true
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Registration'
   parameters:
     IntId:
       name: id
@@ -74,12 +49,47 @@ components:
       description: A unique integer value identifying this object.
       schema:
         type: integer
+  schemas:
+    PaginatedRegistrationList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Registration'
+    Registration:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
   securitySchemes:
     tokenAuth:
       type: apiKey
       in: header
       name: Authorization
-      description: 'DRF Token authentication, e.g. "Authorization: Token <key>".'
+      description: Optional DRF Token authentication.
     basicAuth:
       type: http
       scheme: basic
+x-operator: institution
+x-provenance:
+  generated: '2026-06-03'
+  verified: '2026-08-19'
+  method: derived
+  source: Django REST Framework CoreAPI schema at https://memento.epfl.ch/api/docs/; every collection path re-probed against https://memento.epfl.ch/api/v1 on 2026-08-19 and all answer 200.
+  operator_basis: host under EPFL's own registrable domain epfl.ch
+  note: Pristine pre-refine source. This document has the CORRECT host. refine-openapis later merged tags across both EPFL specs and stamped every per-tag split with the first spec's server, which is how six memento-only resources came to claim actu.epfl.ch. Corrected in openapi/ on 2026-08-19.

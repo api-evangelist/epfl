@@ -1,3 +1,8 @@
+# generated: 2026-08-19
+# method: generated
+# source: openapi/_original/epfl-actu.yaml, openapi/_original/epfl-memento.yaml
+# x-operator: institution -- rules measured from contracts describing EPFL-operated hosts
+#   (actu.epfl.ch, memento.epfl.ch). The rules are ours; the API is EPFL's.
 extends: []
 formats:
   - oas3

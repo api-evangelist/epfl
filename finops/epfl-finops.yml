@@ -1,3 +1,9 @@
+generated: '2026-08-19'
+method: generated
+source: >-
+  Generated from EPFL's own posture. No usage-based billing, metering or invoicing surface was
+  found on any EPFL host; there is no cost to allocate.
+x-operator: institution
 specification: FinOps Framework
 specificationVersion: '1.0'
 schema: https://www.finops.org/framework/

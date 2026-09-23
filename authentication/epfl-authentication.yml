@@ -1,6 +1,7 @@
 generated: '2026-07-11'
 method: derived
-source: openapi/epfl-actu.yaml, openapi/epfl-memento.yaml
+source: openapi/_original/epfl-actu.yaml, openapi/_original/epfl-memento.yaml
+x-operator: institution
 summary:
   types:
   - apiKey
@@ -14,11 +15,11 @@ schemes:
   parameter: Authorization
   description: 'DRF Token authentication, e.g. "Authorization: Token <key>".'
   sources:
-  - openapi/epfl-actu.yaml
-  - openapi/epfl-memento.yaml
+  - openapi/_original/epfl-actu.yaml
+  - openapi/_original/epfl-memento.yaml
 - name: basicAuth
   type: http
   scheme: basic
   sources:
-  - openapi/epfl-actu.yaml
-  - openapi/epfl-memento.yaml
+  - openapi/_original/epfl-actu.yaml
+  - openapi/_original/epfl-memento.yaml

@@ -1,6 +1,7 @@
 generated: '2026-07-15'
 method: generated
-source: openapi/epfl-actu.yaml, openapi/epfl-memento.yaml
+source: openapi/_original/epfl-actu.yaml, openapi/_original/epfl-memento.yaml
+x-operator: institution
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.

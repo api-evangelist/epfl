@@ -1,0 +1,58 @@
+generated: '2026-08-19'
+method: probed
+source: >-
+  Live probes of actu.epfl.ch, memento.epfl.ch, infoscience.epfl.ch and getprime.epfl.ch on
+  2026-08-19
+docs: https://actu.epfl.ch/api-docs/
+x-operator: institution
+versioning:
+  scheme: uri-path
+  current: v1
+  base:
+  - https://actu.epfl.ch/api/v1
+  - https://memento.epfl.ch/api/v1
+  detail: >-
+    Both public APIs pin a single major version in the path and have never advertised a
+    second. No version header, no content negotiation by version, no version field in any
+    response body. The Infoscience REST API is versioned by the DSpace-CRIS release EPFL runs
+    rather than by EPFL; its OAI-PMH provider exposes exactly one context, openaire4, which is
+    itself a version marker (OpenAIRE Guidelines for Literature Repositories v4.0).
+  stability_marking: >-
+    None. Neither api-docs page marks any resource or field as beta, experimental or stable.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  detail: >-
+    EPFL publishes no deprecation policy for any of its APIs and advertises no RFC 8594 Sunset
+    or Deprecation header. There is no changelog, no release notes page and no announcement
+    channel tied to either API. A consumer would learn about a breaking change by breaking.
+  observed_deprecations: []
+change_signals:
+- signal: cache-control
+  detail: >-
+    Responses carry cache-control: max-age=900, public and strict-transport-security:
+    max-age=31536000. Served through Cloudflare (server: cloudflare). No rate-limit headers of
+    any kind were returned.
+  evidence: 'GET https://actu.epfl.ch/api/v1/news/?limit=1 -> 200'
+- signal: OPTIONS metadata
+  detail: >-
+    OPTIONS returns the DRF metadata document, which will change shape if the underlying
+    serializer changes. It is the only introspectable change surface either API has.
+  evidence: 'OPTIONS https://actu.epfl.ch/api/v1/news/ -> 200'
+- signal: repository datestamps
+  detail: >-
+    Infoscience's OAI-PMH provider supports incremental harvesting from
+    earliestDatestamp 2004-08-31T00:00:00Z at second granularity, with deletedRecord policy
+    "transient". That is a real, machine-readable change feed for EPFL research output — and
+    the only one EPFL operates.
+  evidence: 'https://infoscience.epfl.ch/server/oai/openaire4?verb=Identify -> 200'
+retirement_observed:
+- surface: https://infoscience.epfl.ch/oai/request
+  status: 404
+  detail: >-
+    The OAI-PMH base URL this repo carried since 2026-06-03 is dead. It now returns HTTP 404
+    with a 486 KB Angular application shell rather than an OAI error document — a soft-404 that
+    reads as alive to anything checking status codes alone. The live base URL is
+    https://infoscience.epfl.ch/server/oai/openaire4.
+  corrected: '2026-08-19'

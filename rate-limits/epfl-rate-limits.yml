@@ -1,3 +1,11 @@
+generated: '2026-08-19'
+method: probed
+source: >-
+  Live probes on 2026-08-19. EPFL publishes no rate-limit documentation and returns NO
+  rate-limit headers of any kind: a 200 from https://actu.epfl.ch/api/v1/news/?limit=1 carried
+  only cache-control: max-age=900, public and strict-transport-security. Both public APIs sit
+  behind Cloudflare (server: cloudflare), so any enforcement is at the edge and undeclared.
+x-operator: institution
 specification: API Commons Rate Limits
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits

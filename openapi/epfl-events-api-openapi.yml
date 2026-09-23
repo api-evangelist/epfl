@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: EPFL Actu News Categories Events API
-  description: Public REST API serving EPFL news ("Actu") content, with resources for news, projects, channels, faculties, categories, themes and publics. Converted faithfully from the published Django REST Framework CoreAPI schema at https://actu.epfl.ch/api-docs/?format=corejson. Only paths, parameters and objects observed in the real schema and live responses are included. Default access is unauthenticated; optional Token, Basic and Session authentication exist.
+  title: EPFL Memento Events API
+  description: Public REST API serving EPFL events ("Memento"), with resources for events, mementos, categories, domains, faculties, registrations, spoken languages and vulgarizations.
   version: v1
   contact:
-    name: EPFL Actu API
-    url: https://actu.epfl.ch/api-docs/
+    name: EPFL Memento API
+    url: https://memento.epfl.ch/api/docs/
 servers:
-- url: https://actu.epfl.ch/api/v1
+- url: https://memento.epfl.ch/api/v1
 security: []
 tags:
 - name: Events
@@ -15,7 +15,7 @@ paths:
   /events/:
     get:
       operationId: listEvents
-      summary: List all Event objects with filtering.
+      summary: List all Event objects with filtering
       parameters:
       - $ref: '#/components/parameters/Limit'
       - $ref: '#/components/parameters/Offset'
@@ -135,7 +135,7 @@ paths:
   /events/{event__pk}/:
     get:
       operationId: readEvent
-      summary: Return the details about the given Event id.
+      summary: Return the details about the given Event id
       parameters:
       - name: event__pk
         in: path
@@ -156,7 +156,14 @@ paths:
       - Events
 components:
   schemas:
-    Category:
+    SpokenLanguage:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Vulgarization:
       type: object
       properties:
         id:
@@ -170,24 +177,14 @@ components:
           type: integer
         name:
           type: string
-    PaginatedEventList:
+    Memento:
       type: object
       properties:
-        count:
+        id:
           type: integer
-        next:
+        name:
           type: string
-          format: uri
-          nullable: true
-        previous:
-          type: string
-          format: uri
-          nullable: true
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-    Memento:
+    Category:
       type: object
       properties:
         id:
@@ -272,16 +269,18 @@ components:
         keywords:
           type: string
         file:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         icalendar_url:
           type: string
           format: uri
         category:
           $ref: '#/components/schemas/Category'
         academic_calendar_category:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         domains:
           type: array
           items:
@@ -290,6 +289,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Memento'
+    PaginatedEventList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
     Domain:
       type: object
       properties:
@@ -297,37 +315,17 @@ components:
           type: integer
         name:
           type: string
-    SpokenLanguage:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    Vulgarization:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
   parameters:
-    Search:
-      name: search
-      in: query
-      description: A search term.
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Number of results to return per page.
-      schema:
-        type: integer
     Ordering:
       name: ordering
       in: query
       description: Which field to use when ordering the results.
+      schema:
+        type: string
+    Search:
+      name: search
+      in: query
+      description: A search term.
       schema:
         type: string
     Offset:
@@ -336,12 +334,26 @@ components:
       description: The initial index from which to return the results.
       schema:
         type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey
       in: header
       name: Authorization
-      description: 'DRF Token authentication, e.g. "Authorization: Token <key>".'
+      description: Optional DRF Token authentication.
     basicAuth:
       type: http
       scheme: basic
+x-operator: institution
+x-provenance:
+  generated: '2026-06-03'
+  verified: '2026-08-19'
+  method: derived
+  source: Django REST Framework CoreAPI schema at https://memento.epfl.ch/api/docs/; every collection path re-probed against https://memento.epfl.ch/api/v1 on 2026-08-19 and all answer 200.
+  operator_basis: host under EPFL's own registrable domain epfl.ch
+  note: Pristine pre-refine source. This document has the CORRECT host. refine-openapis later merged tags across both EPFL specs and stamped every per-tag split with the first spec's server, which is how six memento-only resources came to claim actu.epfl.ch. Corrected in openapi/ on 2026-08-19.

@@ -1,0 +1,16 @@
+generated: '2026-08-19'
+method: probed
+x-operator: institution
+note: >-
+  These files are verbatim response bodies captured from EPFL's own hosts. They are the
+  institution's data, unedited, so provenance is recorded here rather than injected into the
+  payloads. Both were re-probed on 2026-08-19 and both endpoints still answer HTTP 200.
+examples:
+- file: epfl-listNews-example.json
+  method: probed
+  operator: institution
+  source: 'GET https://actu.epfl.ch/api/v1/news/?lang=en&limit=1 -> 200 application/json'
+- file: epfl-listEvents-example.json
+  method: probed
+  operator: institution
+  source: 'GET https://memento.epfl.ch/api/v1/events/?limit=1 -> 200 application/json'
