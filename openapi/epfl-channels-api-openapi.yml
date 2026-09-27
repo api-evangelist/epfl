@@ -92,12 +92,78 @@ components:
           type: string
         is_active:
           type: boolean
-    Public:
+    PaginatedNewsList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/News'
+    Faculty:
       type: object
       properties:
         id:
           type: integer
         name:
+          type: string
+    PaginatedChannelList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        news_url:
+          type: string
+          format: uri
+    Theme:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        fr_label:
+          type: string
+        en_label:
+          type: string
+        de_label:
           type: string
     News:
       type: object
@@ -176,79 +242,13 @@ components:
           type: string
         is_under_cc_license:
           type: boolean
-    Theme:
+    Public:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-    PaginatedNewsList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/News'
-    Faculty:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    Category:
-      type: object
-      properties:
-        id:
-          type: integer
-        fr_label:
-          type: string
-        en_label:
-          type: string
-        de_label:
-          type: string
-    Project:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        news_url:
-          type: string
-          format: uri
-    PaginatedChannelList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Channel'
     PaginatedProjectList:
       type: object
       properties:
@@ -269,12 +269,6 @@ components:
           items:
             $ref: '#/components/schemas/Project'
   parameters:
-    Search:
-      name: search
-      in: query
-      description: A search term.
-      schema:
-        type: string
     StringId:
       name: id
       in: path
@@ -282,16 +276,22 @@ components:
       description: A unique value identifying this object.
       schema:
         type: string
-    Offset:
-      name: offset
+    Search:
+      name: search
       in: query
-      description: The initial index from which to return the results.
+      description: A search term.
       schema:
-        type: integer
+        type: string
     Limit:
       name: limit
       in: query
       description: Number of results to return per page.
+      schema:
+        type: integer
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
       schema:
         type: integer
   securitySchemes:

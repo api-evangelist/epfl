@@ -41,15 +41,14 @@ paths:
       tags:
       - Registrations
 components:
-  parameters:
-    IntId:
-      name: id
-      in: path
-      required: true
-      description: A unique integer value identifying this object.
-      schema:
-        type: integer
   schemas:
+    Registration:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
     PaginatedRegistrationList:
       type: object
       properties:
@@ -69,13 +68,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Registration'
-    Registration:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
+  parameters:
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey

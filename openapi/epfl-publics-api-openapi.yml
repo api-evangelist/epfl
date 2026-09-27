@@ -47,13 +47,6 @@ paths:
       - Publics
 components:
   schemas:
-    Public:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
     PaginatedPublicList:
       type: object
       properties:
@@ -73,6 +66,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Public'
+    Public:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
   parameters:
     Search:
       name: search
@@ -80,10 +80,10 @@ components:
       description: A search term.
       schema:
         type: string
-    Offset:
-      name: offset
+    Limit:
+      name: limit
       in: query
-      description: The initial index from which to return the results.
+      description: Number of results to return per page.
       schema:
         type: integer
     IntId:
@@ -93,10 +93,10 @@ components:
       description: A unique integer value identifying this object.
       schema:
         type: integer
-    Limit:
-      name: limit
+    Offset:
+      name: offset
       in: query
-      description: Number of results to return per page.
+      description: The initial index from which to return the results.
       schema:
         type: integer
   securitySchemes:

@@ -46,6 +46,32 @@ paths:
       tags:
       - Themes
 components:
+  parameters:
+    Search:
+      name: search
+      in: query
+      description: A search term.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
   schemas:
     Theme:
       type: object
@@ -73,32 +99,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Theme'
-  parameters:
-    Search:
-      name: search
-      in: query
-      description: A search term.
-      schema:
-        type: string
-    Offset:
-      name: offset
-      in: query
-      description: The initial index from which to return the results.
-      schema:
-        type: integer
-    IntId:
-      name: id
-      in: path
-      required: true
-      description: A unique integer value identifying this object.
-      schema:
-        type: integer
-    Limit:
-      name: limit
-      in: query
-      description: Number of results to return per page.
-      schema:
-        type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey

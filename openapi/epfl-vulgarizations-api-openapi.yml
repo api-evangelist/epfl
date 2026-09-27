@@ -41,22 +41,7 @@ paths:
       tags:
       - Vulgarizations
 components:
-  parameters:
-    IntId:
-      name: id
-      in: path
-      required: true
-      description: A unique integer value identifying this object.
-      schema:
-        type: integer
   schemas:
-    Vulgarization:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
     PaginatedVulgarizationList:
       type: object
       properties:
@@ -76,6 +61,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Vulgarization'
+    Vulgarization:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+  parameters:
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey

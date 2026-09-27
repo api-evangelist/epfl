@@ -69,12 +69,52 @@ components:
           type: string
         is_active:
           type: boolean
-    Public:
+    PaginatedNewsList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/News'
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        news_url:
+          type: string
+          format: uri
+    Theme:
       type: object
       properties:
         id:
           type: integer
         name:
+          type: string
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        fr_label:
+          type: string
+        en_label:
+          type: string
+        de_label:
           type: string
     News:
       type: object
@@ -153,42 +193,12 @@ components:
           type: string
         is_under_cc_license:
           type: boolean
-    Theme:
+    Public:
       type: object
       properties:
         id:
           type: integer
         name:
-          type: string
-    PaginatedNewsList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/News'
-    Category:
-      type: object
-      properties:
-        id:
-          type: integer
-        fr_label:
-          type: string
-        en_label:
-          type: string
-        de_label:
           type: string
     Faculty:
       type: object
@@ -197,16 +207,6 @@ components:
           type: integer
         name:
           type: string
-    Project:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        news_url:
-          type: string
-          format: uri
   parameters:
     Search:
       name: search
@@ -214,12 +214,6 @@ components:
       description: A search term.
       schema:
         type: string
-    Offset:
-      name: offset
-      in: query
-      description: The initial index from which to return the results.
-      schema:
-        type: integer
     Limit:
       name: limit
       in: query
@@ -236,6 +230,12 @@ components:
         - en
         - fr
         - de
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey
