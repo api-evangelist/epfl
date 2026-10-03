@@ -48,39 +48,14 @@ paths:
       tags:
       - Domains
 components:
-  parameters:
-    Ordering:
-      name: ordering
-      in: query
-      description: Which field to use when ordering the results.
-      schema:
-        type: string
-    Search:
-      name: search
-      in: query
-      description: A search term.
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Number of results to return per page.
-      schema:
-        type: integer
-    IntId:
-      name: id
-      in: path
-      required: true
-      description: A unique integer value identifying this object.
-      schema:
-        type: integer
-    Offset:
-      name: offset
-      in: query
-      description: The initial index from which to return the results.
-      schema:
-        type: integer
   schemas:
+    Domain:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
     PaginatedDomainList:
       type: object
       properties:
@@ -100,13 +75,38 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Domain'
-    Domain:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
+  parameters:
+    Ordering:
+      name: ordering
+      in: query
+      description: Which field to use when ordering the results.
+      schema:
+        type: string
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
+    Search:
+      name: search
+      in: query
+      description: A search term.
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey

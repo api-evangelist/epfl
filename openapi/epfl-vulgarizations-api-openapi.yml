@@ -42,6 +42,13 @@ paths:
       - Vulgarizations
 components:
   schemas:
+    Vulgarization:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
     PaginatedVulgarizationList:
       type: object
       properties:
@@ -61,13 +68,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Vulgarization'
-    Vulgarization:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
   parameters:
     IntId:
       name: id

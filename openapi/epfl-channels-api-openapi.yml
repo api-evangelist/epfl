@@ -76,7 +76,40 @@ paths:
       tags:
       - Channels
 components:
+  parameters:
+    StringId:
+      name: id
+      in: path
+      required: true
+      description: A unique value identifying this object.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
+    Search:
+      name: search
+      in: query
+      description: A search term.
+      schema:
+        type: string
   schemas:
+    Theme:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
     Channel:
       type: object
       properties:
@@ -92,7 +125,7 @@ components:
           type: string
         is_active:
           type: boolean
-    PaginatedNewsList:
+    PaginatedProjectList:
       type: object
       properties:
         count:
@@ -110,61 +143,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/News'
-    Faculty:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    PaginatedChannelList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Channel'
-    Project:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        news_url:
-          type: string
-          format: uri
-    Theme:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    Category:
-      type: object
-      properties:
-        id:
-          type: integer
-        fr_label:
-          type: string
-        en_label:
-          type: string
-        de_label:
-          type: string
+            $ref: '#/components/schemas/Project'
     News:
       type: object
       properties:
@@ -242,14 +221,7 @@ components:
           type: string
         is_under_cc_license:
           type: boolean
-    Public:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    PaginatedProjectList:
+    PaginatedNewsList:
       type: object
       properties:
         count:
@@ -267,33 +239,61 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/Project'
-  parameters:
-    StringId:
-      name: id
-      in: path
-      required: true
-      description: A unique value identifying this object.
-      schema:
-        type: string
-    Search:
-      name: search
-      in: query
-      description: A search term.
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Number of results to return per page.
-      schema:
-        type: integer
-    Offset:
-      name: offset
-      in: query
-      description: The initial index from which to return the results.
-      schema:
-        type: integer
+            $ref: '#/components/schemas/News'
+    Public:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Faculty:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        fr_label:
+          type: string
+        en_label:
+          type: string
+        de_label:
+          type: string
+    PaginatedChannelList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        news_url:
+          type: string
+          format: uri
   securitySchemes:
     tokenAuth:
       type: apiKey

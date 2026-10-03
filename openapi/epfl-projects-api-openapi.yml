@@ -46,17 +46,33 @@ paths:
       tags:
       - Projects
 components:
+  parameters:
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
+    Search:
+      name: search
+      in: query
+      description: A search term.
+      schema:
+        type: string
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
   schemas:
-    Project:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        news_url:
-          type: string
-          format: uri
     PaginatedProjectList:
       type: object
       properties:
@@ -76,32 +92,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Project'
-  parameters:
-    Search:
-      name: search
-      in: query
-      description: A search term.
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Number of results to return per page.
-      schema:
-        type: integer
-    IntId:
-      name: id
-      in: path
-      required: true
-      description: A unique integer value identifying this object.
-      schema:
-        type: integer
-    Offset:
-      name: offset
-      in: query
-      description: The initial index from which to return the results.
-      schema:
-        type: integer
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        news_url:
+          type: string
+          format: uri
   securitySchemes:
     tokenAuth:
       type: apiKey
