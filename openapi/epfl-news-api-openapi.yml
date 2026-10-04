@@ -54,28 +54,6 @@ paths:
       - News
 components:
   schemas:
-    Theme:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    Channel:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        fr_description:
-          type: string
-        en_description:
-          type: string
-        de_description:
-          type: string
-        is_active:
-          type: boolean
     News:
       type: object
       properties:
@@ -153,6 +131,28 @@ components:
           type: string
         is_under_cc_license:
           type: boolean
+    Channel:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        fr_description:
+          type: string
+        en_description:
+          type: string
+        de_description:
+          type: string
+        is_active:
+          type: boolean
+    Faculty:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
     PaginatedNewsList:
       type: object
       properties:
@@ -179,23 +179,6 @@ components:
           type: integer
         name:
           type: string
-    Faculty:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    Project:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        news_url:
-          type: string
-          format: uri
     Category:
       type: object
       properties:
@@ -207,7 +190,30 @@ components:
           type: string
         de_label:
           type: string
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        news_url:
+          type: string
+          format: uri
+    Theme:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
   parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
     Search:
       name: search
       in: query
@@ -218,12 +224,6 @@ components:
       name: offset
       in: query
       description: The initial index from which to return the results.
-      schema:
-        type: integer
-    Limit:
-      name: limit
-      in: query
-      description: Number of results to return per page.
       schema:
         type: integer
     Lang:

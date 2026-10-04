@@ -64,14 +64,7 @@ paths:
       - Mementos
 components:
   schemas:
-    Domain:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    Registration:
+    Vulgarization:
       type: object
       properties:
         id:
@@ -79,13 +72,6 @@ components:
         name:
           type: string
     SpokenLanguage:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    Vulgarization:
       type: object
       properties:
         id:
@@ -111,6 +97,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Memento'
+    Registration:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
     Event:
       type: object
       properties:
@@ -209,14 +202,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Memento'
-    Category:
+    Domain:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-    Memento:
+    Category:
       type: object
       properties:
         id:
@@ -242,20 +235,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Event'
+    Memento:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
   parameters:
-    Ordering:
-      name: ordering
-      in: query
-      description: Which field to use when ordering the results.
-      schema:
-        type: string
-    IntId:
-      name: id
-      in: path
-      required: true
-      description: A unique integer value identifying this object.
-      schema:
-        type: integer
     Limit:
       name: limit
       in: query
@@ -274,6 +261,19 @@ components:
       description: A search term.
       schema:
         type: string
+    Ordering:
+      name: ordering
+      in: query
+      description: Which field to use when ordering the results.
+      schema:
+        type: string
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
   securitySchemes:
     tokenAuth:
       type: apiKey

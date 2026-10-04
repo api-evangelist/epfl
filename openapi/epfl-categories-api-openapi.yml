@@ -48,38 +48,6 @@ paths:
     servers:
     - url: https://actu.epfl.ch/api/v1
 components:
-  parameters:
-    IntId:
-      name: id
-      in: path
-      required: true
-      description: A unique integer value identifying this object.
-      schema:
-        type: integer
-    Search:
-      name: search
-      in: query
-      description: A search term.
-      schema:
-        type: string
-    Offset:
-      name: offset
-      in: query
-      description: The initial index from which to return the results.
-      schema:
-        type: integer
-    Limit:
-      name: limit
-      in: query
-      description: Number of results to return per page.
-      schema:
-        type: integer
-    Ordering:
-      name: ordering
-      in: query
-      description: Which field to use when ordering the results.
-      schema:
-        type: string
   schemas:
     PaginatedCategoryList:
       type: object
@@ -118,6 +86,38 @@ components:
           type: integer
         name:
           type: string
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
+    Offset:
+      name: offset
+      in: query
+      description: The initial index from which to return the results.
+      schema:
+        type: integer
+    Search:
+      name: search
+      in: query
+      description: A search term.
+      schema:
+        type: string
+    IntId:
+      name: id
+      in: path
+      required: true
+      description: A unique integer value identifying this object.
+      schema:
+        type: integer
+    Ordering:
+      name: ordering
+      in: query
+      description: Which field to use when ordering the results.
+      schema:
+        type: string
   securitySchemes:
     tokenAuth:
       type: apiKey

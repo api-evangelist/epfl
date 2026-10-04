@@ -156,14 +156,7 @@ paths:
       - Events
 components:
   schemas:
-    Domain:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    Registration:
+    Vulgarization:
       type: object
       properties:
         id:
@@ -177,7 +170,7 @@ components:
           type: integer
         name:
           type: string
-    Vulgarization:
+    Registration:
       type: object
       properties:
         id:
@@ -282,14 +275,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Memento'
-    Category:
+    Domain:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-    Memento:
+    Category:
       type: object
       properties:
         id:
@@ -315,13 +308,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Event'
+    Memento:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
   parameters:
-    Ordering:
-      name: ordering
-      in: query
-      description: Which field to use when ordering the results.
-      schema:
-        type: string
     Limit:
       name: limit
       in: query
@@ -338,6 +332,12 @@ components:
       name: search
       in: query
       description: A search term.
+      schema:
+        type: string
+    Ordering:
+      name: ordering
+      in: query
+      description: Which field to use when ordering the results.
       schema:
         type: string
   securitySchemes:
