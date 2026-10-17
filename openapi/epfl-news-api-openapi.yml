@@ -54,6 +54,54 @@ paths:
       - News
 components:
   schemas:
+    Theme:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    PaginatedNewsList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/News'
+    Public:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Channel:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        fr_description:
+          type: string
+        en_description:
+          type: string
+        de_description:
+          type: string
+        is_active:
+          type: boolean
     News:
       type: object
       properties:
@@ -131,54 +179,16 @@ components:
           type: string
         is_under_cc_license:
           type: boolean
-    Channel:
+    Project:
       type: object
       properties:
         id:
           type: integer
-        name:
+        title:
           type: string
-        fr_description:
+        news_url:
           type: string
-        en_description:
-          type: string
-        de_description:
-          type: string
-        is_active:
-          type: boolean
-    Faculty:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-    PaginatedNewsList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
           format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/News'
-    Public:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
     Category:
       type: object
       properties:
@@ -190,17 +200,7 @@ components:
           type: string
         de_label:
           type: string
-    Project:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-        news_url:
-          type: string
-          format: uri
-    Theme:
+    Faculty:
       type: object
       properties:
         id:
@@ -208,10 +208,10 @@ components:
         name:
           type: string
   parameters:
-    Limit:
-      name: limit
+    Offset:
+      name: offset
       in: query
-      description: Number of results to return per page.
+      description: The initial index from which to return the results.
       schema:
         type: integer
     Search:
@@ -220,10 +220,10 @@ components:
       description: A search term.
       schema:
         type: string
-    Offset:
-      name: offset
+    Limit:
+      name: limit
       in: query
-      description: The initial index from which to return the results.
+      description: Number of results to return per page.
       schema:
         type: integer
     Lang:

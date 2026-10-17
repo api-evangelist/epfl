@@ -46,40 +46,7 @@ paths:
       tags:
       - Publics
 components:
-  schemas:
-    PaginatedPublicList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Public'
-    Public:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
   parameters:
-    Limit:
-      name: limit
-      in: query
-      description: Number of results to return per page.
-      schema:
-        type: integer
     Offset:
       name: offset
       in: query
@@ -99,6 +66,39 @@ components:
       description: A unique integer value identifying this object.
       schema:
         type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Number of results to return per page.
+      schema:
+        type: integer
+  schemas:
+    Public:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    PaginatedPublicList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Public'
   securitySchemes:
     tokenAuth:
       type: apiKey

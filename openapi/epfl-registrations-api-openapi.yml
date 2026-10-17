@@ -42,13 +42,6 @@ paths:
       - Registrations
 components:
   schemas:
-    Registration:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
     PaginatedRegistrationList:
       type: object
       properties:
@@ -68,6 +61,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Registration'
+    Registration:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
   parameters:
     IntId:
       name: id
