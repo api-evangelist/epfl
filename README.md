@@ -1,4 +1,4 @@
-# EPFL (epfl)
+# EPFL
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,87 +64,188 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-EPFL (École polytechnique fédérale de Lausanne) is a Swiss federal institute of technology in Lausanne, one of the two federal technical universities in the ETH Domain. This repository catalogs EPFL's public developer and API footprint as an [APIs.json](https://apisjson.org) provider profile.
+EPFL (École polytechnique fédérale de Lausanne) is a Swiss federal institute of technology in Lausanne and one of the two federal technical universities in the ETH Domain. Measured on what it actually operates rather than what runs under its name, EPFL is unusual among research universities: it runs FOUR public, unauthenticated APIs on its own registrable domain. The Actu news API (actu.epfl.ch) and the Memento events API (memento.epfl.ch) are Django REST Framework services with live interactive CoreAPI documentation; Infoscience (infoscience.epfl.ch) is EPFL's self-hosted DSpace-CRIS repository serving a HAL/HATEOAS REST API and a working OAI-PMH provider; and GETprime (getprime.epfl.ch), from the Gene Expression Core Facility, answers primer-design queries over HTTP. EPFL publishes no OpenAPI for any of them and operates no developer portal, no API gateway (api.epfl.ch resolves only to RFC 1918 space), no plans, no rate-limit documentation and no deprecation policy — every OpenAPI in this repo is derived by API Evangelist and marked as such. Its library discovery runs on Ex Libris Primo/Alma through the SLSP consortium and its identity provider endpoint is hosted by SWITCH edu-ID; both are recorded here as tenant relationships, not as EPFL engineering. There is no public course-catalog or timetable API.
 
-Profiled under the **university pipeline**, which settles *who operates* each surface before saving anything. Every entry in `apis.yml` carries an `x-operator` of `institution` or `tenant`.
+**Areas:** University · Higher Education · Education · Technical University · Research · Research Repository · Open Access · Identity Federation · News · Event · Switzerland · Europe
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/epfl/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=epfl-api-evangelist&utm_content=repo
+## EPFL on APIs.io
 
-## Type
+Everything profiled for EPFL is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/epfl/](https://apis.io/providers/epfl/)** — or go straight to one of the APIs or properties below.
 
-- Index
-- Consumer
-- 3rd-Party
+### APIs (9)
 
-## Tags
+- [EPFL Actu News API](https://apis.io/apis/epfl/actu-news-api/) — EPFL's public news API, serving the Actu newsroom — news, projects, channels, faculties, categories, themes and publics. Django REST Framework, read-only…
+- [EPFL Memento Events API](https://apis.io/apis/epfl/memento-events-api/) — EPFL's public events and agenda API, serving the Memento calendar — events, mementos, registrations, domains, categories, faculties, spoken languages and…
+- [EPFL Infoscience Institutional Repository](https://apis.io/apis/epfl/infoscience/) — Infoscience is EPFL's institutional repository and CRIS, self-hosted on EPFL infrastructure and running DSpace-CRIS. It exposes a HAL/HATEOAS REST API…
+- [EPFL Graph Search](https://apis.io/apis/epfl/graphsearch/) — EPFL Graph Search is an EPFL-built knowledge-graph search over EPFL concepts, people, units and publications. It has a live HTTP API router — every /api/*…
+- [EPFL go.epfl.ch URL Shortener API](https://apis.io/apis/epfl/go-url-shortener/) — EPFL's institutional URL shortener publishes an API page describing token-authenticated link creation. Access is gated to EPFL community members holding an…
+- [EPFL SAML Identity Federation Entities](https://apis.io/apis/epfl/identity-federation/) — EPFL is a registered member of SWITCHaai, the Swiss academic identity federation, which is exported to eduGAIN. Seventeen entityIDs containing "epfl" appear…
+- [EPFL Identity Provider (SWITCH edu-ID, tenant)](https://apis.io/apis/epfl/eduid-idp/) — EPFL's SAML identity provider is delivered by SWITCH edu-ID as a hosted, EPFL-branded IdP. The relationship is a real institutional fact — EPFL…
+- [EPFL Library Discovery on swisscovery (Ex Libris, tenant)](https://apis.io/apis/epfl/swisscovery-library/) — EPFL's library discovery and resolution run on Ex Libris Primo VE with Alma behind it, delivered through SLSP (Swiss Library Service Platform). EPFL's…
+- [EPFL Primers API](https://apis.io/apis/epfl/epfl-primers-api/) — The Primers API from EPFL — 1 operation(s) for primers.
 
-University, Higher Education, Education, Technical University, Research, Research Repository, Open Access, Identity Federation, News, Events, Switzerland, Europe
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Institution-operated (EPFL runs the host and the service)
+#### Agentic access (1)
 
-- **EPFL Actu News API** — public, read-only REST API for EPFL news, projects, channels, faculties, categories, themes and publics. Docs: https://actu.epfl.ch/api-docs/ (base `https://actu.epfl.ch/api/v1/`)
-- **EPFL Memento Events API** — public, read-only REST API for EPFL events, mementos, registrations, domains, spoken languages and vulgarizations. Docs: https://memento.epfl.ch/api/docs/ (base `https://memento.epfl.ch/api/v1/`)
-- **EPFL Infoscience** — self-hosted DSpace-CRIS institutional repository. HAL/HATEOAS REST: https://infoscience.epfl.ch/server/api · **OAI-PMH: https://infoscience.epfl.ch/server/oai/openaire4?verb=Identify** (OpenAIRE Guidelines v4, DataCite Kernel 4, ORCID identifiers)
-- **EPFL GETprime** — qPCR primer-design API from the Gene Expression Core Facility. Docs: https://getprime.epfl.ch/api_documentation (base `https://getprime.epfl.ch/`)
-- **EPFL SAML federation entities** — Shibboleth service providers at `tequila.epfl.ch` and `companion.epfl.ch`, IdP entity `https://idp.epfl.ch/idp/shibboleth` with REFEDS Research & Scholarship and Sirtfi, published in the SWITCHaai aggregate
-- **EPFL Graph Search** — live `/api` router at https://graphsearch.epfl.ch/, no documented routes, behind a Cloudflare bot challenge
-- **go.epfl.ch** — URL shortener API, gated to EPFL community token holders
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Tenant (EPFL's data, a vendor's contract — recorded, not credited)
+- [Epfl Agentic Access](https://apis.io/agentic-access/epfl/epfl-agentic-access/)
 
-- **Library discovery on swisscovery** — https://epfl.swisscovery.ch/ CNAMEs to `slsp-epfl.primo.exlibrisgroup.com`; Ex Libris Primo VE + Alma delivered through the SLSP consortium
-- **Identity provider** — the `idp.epfl.ch` entityID's SSO endpoints resolve to `epfl.login.eduid.ch`, a hosted IdP on SWITCH edu-ID
+#### JSON Schema (2)
 
-No Ex Libris, SWITCH or DSpace specification is saved under EPFL's slug.
+The data models the API reads and writes.
 
-## Plans, Rate Limits, and FinOps
+- [EPFL Memento Event](https://apis.io/schemas/epfl/epfl-event/)
+- [EPFL Actu News](https://apis.io/schemas/epfl/epfl-news/)
 
-- Plans & Pricing: [plans/epfl-plans-pricing.yml](plans/epfl-plans-pricing.yml)
-- Rate Limits: [rate-limits/epfl-rate-limits.yml](rate-limits/epfl-rate-limits.yml)
-- FinOps: [finops/epfl-finops.yml](finops/epfl-finops.yml)
+#### JSON Structure (2)
 
-## Conformance, errors, lifecycle, scopes
+Data models expressed in JSON Structure.
 
-- Conformance: [conformance/epfl-conformance.yml](conformance/epfl-conformance.yml) — `education` regime standards, probed
-- Errors: [errors/epfl-problem-types.yml](errors/epfl-problem-types.yml)
-- Lifecycle: [lifecycle/epfl-lifecycle.yml](lifecycle/epfl-lifecycle.yml)
-- Scopes: [scopes/epfl-scopes.yml](scopes/epfl-scopes.yml) — no OAuth; the SAML attribute-release surface in its place
+- [Epfl Event Structure](https://apis.io/json-structure/epfl/epfl-event-structure/)
+- [Epfl News Structure](https://apis.io/json-structure/epfl/epfl-news-structure/)
 
-## Timestamps
+#### JSON-LD (1)
 
-- Created: 2026-06-03
-- Modified: 2026-08-19
+Linked-data contexts for the provider's vocabulary.
 
-## Common Properties
+- [Epfl Context](https://apis.io/jsonld/epfl/epfl-context/)
 
-- Website: https://www.epfl.ch
-- Course catalog: https://edu.epfl.ch/
-- Research computing (SCITAS): https://www.epfl.ch/research/facilities/scitas/
-- AI policy: https://www.epfl.ch/education/teaching/index-html/ai-teaching/guidelines-for-the-use-of-ai-in-teaching-at-epfl/
-- GitHub: https://github.com/epfl-si
-- LinkedIn: https://www.linkedin.com/school/epfl/
-- Review: [review.yml](review.yml)
+#### Vocabulary (1)
 
-## Notes
+The provider's domain terms, defined.
 
-All endpoints were re-probed live on **2026-08-19**. EPFL publishes **no OpenAPI** — both public APIs
-document themselves as Django REST Framework CoreAPI schemas, and `?format=openapi` returns 404 — so
-every OpenAPI in `openapi/` is derived by API Evangelist and carries `x-provenance.method: derived`.
+- [EPFL API Vocabulary](https://apis.io/vocabularies/epfl/epfl-vocabulary/)
 
-Three defects from the 2026-06-03 pass were corrected: six derived contracts pointed at
-`actu.epfl.ch` for resources only `memento.epfl.ch` serves; the OAI-PMH pointer
-(`/oai/request`) is a soft-404 returning a 486 KB app shell and was replaced with the live
-`/server/oai/openaire4`; and the profile carried an "Open Data" tag with no portal behind it —
-`data.epfl.ch` redirects to a laboratory page.
+#### Examples (2)
 
-Genuinely absent, and stated as such: no public course-catalog or timetable API, no open-data portal,
-no API gateway (`api.epfl.ch` resolves to RFC 1918 space), no developer portal, no plans, no
-rate-limit documentation, no deprecation policy, no `llms.txt`. The `security.txt` is PGP-signed but
-expired (Expires 2026-01-02). No endpoints, docs, or properties were fabricated.
+Example requests and responses.
 
-## Maintainers
+- [Epfl Listevents Example](https://apis.io/examples/epfl/epfl-listEvents-example/)
+- [Epfl Listnews Example](https://apis.io/examples/epfl/epfl-listNews-example/)
 
-- Kin Lane — kin@apievangelist.com
+#### Collections (13)
+
+Postman and Open Collection request collections.
+
+- [EPFL Categories API](https://apis.io/collections/epfl/open-epfl-categories-api/)
+- [EPFL Channels API](https://apis.io/collections/epfl/open-epfl-channels-api/)
+- [EPFL Domains API](https://apis.io/collections/epfl/open-epfl-domains-api/)
+- [EPFL Events API](https://apis.io/collections/epfl/open-epfl-events-api/)
+- [EPFL Faculties API](https://apis.io/collections/epfl/open-epfl-faculties-api/)
+- [EPFL Mementos API](https://apis.io/collections/epfl/open-epfl-mementos-api/)
+- [EPFL News API](https://apis.io/collections/epfl/open-epfl-news-api/)
+- [EPFL Projects API](https://apis.io/collections/epfl/open-epfl-projects-api/)
+- [EPFL Publics API](https://apis.io/collections/epfl/open-epfl-publics-api/)
+- [EPFL Registrations API](https://apis.io/collections/epfl/open-epfl-registrations-api/)
+- [EPFL Spoken Languages API](https://apis.io/collections/epfl/open-epfl-spoken-languages-api/)
+- [EPFL Themes API](https://apis.io/collections/epfl/open-epfl-themes-api/)
+- [EPFL Vulgarizations API](https://apis.io/collections/epfl/open-epfl-vulgarizations-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [EPFL — jsonschema rules](https://apis.io/rules/epfl/epfl-jsonschema-spectral-rules/)
+- [EPFL API Rules](https://apis.io/rules/epfl/epfl-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Epfl Authentication](https://apis.io/security/epfl/epfl-authentication/)
+- [Epfl Domain Security](https://apis.io/security/epfl/epfl-domain-security/)
+- [Epfl Vulnerability Disclosure](https://apis.io/security/epfl/epfl-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Epfl Scopes](https://apis.io/scopes/epfl/epfl-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Epfl Plans Pricing](https://apis.io/plans/epfl/epfl-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Epfl Rate Limits](https://apis.io/rate-limits/epfl/epfl-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Epfl Finops](https://apis.io/finops/epfl/epfl-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.epfl.ch)
+- [Documentation](https://actu.epfl.ch/api-docs/)
+- [API reference](https://memento.epfl.ch/api/docs/)
+- [Support](https://www.epfl.ch/campus/library/)
+- [Blog](https://actu.epfl.ch/)
+- [Terms of service](https://www.epfl.ch/about/overview/regulations-and-guidelines/)
+- [Privacy policy](https://www.epfl.ch/about/presidency/presidents-team/legal-affairs/epfl-privacy-policy/)
+- [GitHub](https://github.com/epfl-si)
+
+## API Evangelist rating
+
+**Kin Score 36.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 24.6 |
+| Contract governance | 31.8 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 26.3 |
+
+**Agent readiness 21.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 40.2** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/epfl/](https://apis.io/providers/epfl/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for EPFL: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/epfl/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
